@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS } from "@/lib/constants";
 
@@ -75,7 +76,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <span className="font-mono text-gold text-sm tracking-[0.15em] uppercase">Ahara</span>
+            <Image src="/AharaSubmark.png" alt="Ahara" width={72} height={72} className="rounded-full" />
             <p className="font-inter text-cream text-[13px]">Science. Nourishment. Wellbeing.</p>
           </div>
 

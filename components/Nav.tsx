@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X, Menu } from "lucide-react";
@@ -21,8 +22,14 @@ export default function Nav() {
         }}
       >
         <div className="flex items-center gap-3 flex-shrink-0">
-          <span className="font-cormorant text-cream text-2xl font-light tracking-widest">AHARA</span>
-          <span className="text-gold opacity-60">·</span>
+          <Image
+            src="/AharaBrandIcon2.png"
+            alt="Ahara"
+            width={40}
+            height={40}
+            className="rounded-lg"
+            priority
+          />
           <span className="font-mono text-xs tracking-[0.15em] text-cream/50 hidden sm:block">
             NUTRACEUTICAL RESEARCH
           </span>
@@ -68,7 +75,7 @@ export default function Nav() {
           style={{ background: "#060D07" }}
         >
           <div className="flex items-center justify-between px-6 h-[72px]">
-            <span className="font-cormorant text-cream text-2xl font-light tracking-widest">AHARA</span>
+            <Image src="/AharaBrandIcon2.png" alt="Ahara" width={40} height={40} className="rounded-lg" />
             <button onClick={() => setMobileOpen(false)} className="text-gold" aria-label="Close menu">
               <X size={24} />
             </button>

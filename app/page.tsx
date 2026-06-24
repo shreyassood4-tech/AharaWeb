@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import MolecularCanvas from "@/components/MolecularCanvas";
+import MolecularGlobe3D from "@/components/MolecularGlobe3D";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import StatCounter from "@/components/StatCounter";
@@ -79,24 +80,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center justify-center relative">
-            <div
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: "radial-gradient(circle at center, rgba(196,151,58,0.08), transparent 70%)",
-              }}
-            />
-            <span
-              className="font-cormorant font-light select-none"
-              style={{
-                fontSize: "280px",
-                color: "rgba(196,151,58,0.40)",
-                lineHeight: 1,
-                filter: "drop-shadow(0 0 40px rgba(196,151,58,0.15))",
-              }}
-            >
-              A
-            </span>
+          <div className="hidden md:flex items-center justify-center relative" style={{ height: "520px" }}>
+            <MolecularGlobe3D />
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import MolecularCanvas from "@/components/MolecularCanvas";
+import MolecularCanvas3D from "@/components/MolecularCanvas3D";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import StatCounter from "@/components/StatCounter";
@@ -16,7 +17,7 @@ export default function SciencePage() {
     <>
       {/* SECTION 2.1: HERO */}
       <section className="relative bg-void pt-[72px]" style={{ minHeight: "85vh" }}>
-        <MolecularCanvas />
+        <MolecularCanvas3D />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">THE AHARA SCIENCE</p>
           <h1 className="font-cormorant font-light text-white leading-tight max-w-[700px]" style={{ fontSize: "clamp(40px, 7vw, 90px)" }}>
@@ -194,13 +195,7 @@ export default function SciencePage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div
-              className="w-20 h-20 rounded-full flex flex-col items-center justify-center border-2 border-gold"
-              style={{ gap: "2px" }}
-            >
-              <span className="font-mono text-gold text-[9px] tracking-[0.3em]">AHARA</span>
-              <div className="w-3 h-3 rounded-full border border-gold" />
-            </div>
+            <Image src="/AharaSubmark.png" alt="Ahara seal" width={100} height={100} className="rounded-full" />
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
