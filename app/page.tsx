@@ -56,7 +56,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* SECTION 2: THE WAKE-UP CALL */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-12">THE REALITY</p>
@@ -106,13 +106,13 @@ export default function HomePage() {
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">FORMULA 01</p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-cormorant font-semibold text-white leading-tight" style={{ fontSize: "52px" }}>
+            <h2 className="font-cormorant font-semibold text-white leading-tight" style={{ fontSize: "clamp(28px, 5.5vw, 52px)" }}>
               Real food.<br />Proven science.<br />One daily powder.
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} stagger>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <RevealItem>
                 <TiltCard className="glass-card p-6 flex flex-col gap-1">
                   <span className="font-cormorant text-gold text-4xl font-light">250 µg</span>
@@ -149,7 +149,7 @@ export default function HomePage() {
       <SectionDivider />
 
       {/* SECTION 4: WHY AHARA IS DIFFERENT */}
-      <section className="bg-void py-[120px]">
+      <section className="bg-void py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-12">
           <ScrollReveal className="text-center">
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">THE APPROACH</p>
@@ -209,7 +209,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 5: HOW YOU USE IT */}
-      <section className="bg-cream py-[120px]">
+      <section className="bg-cream py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
             <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">SIMPLE BY DESIGN</p>
@@ -265,7 +265,7 @@ export default function HomePage() {
       {/* SECTION 6: WAITLIST CTA */}
       <section
         id="waitlist"
-        className="relative py-[160px] bg-void"
+        className="relative py-20 md:py-[160px] bg-void"
         style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.07) 0%, transparent 60%), #060D07" }}
       >
         <CornerMarks />
@@ -296,7 +296,7 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 7: FAQ */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">QUESTIONS</p>

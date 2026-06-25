@@ -17,7 +17,7 @@ export default function AboutPage() {
       {/* SECTION 4.1: HERO */}
       <section className="relative bg-void pt-[72px]" style={{ minHeight: "85vh" }}>
         <MolecularCanvas />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 flex flex-col gap-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">ABOUT AHARA</p>
           <h1
             className="font-cormorant font-light text-white leading-tight max-w-[800px]"
@@ -33,7 +33,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 4.2: FOUNDERS */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col gap-12">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">THE TEAM</p>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 4.3: MISSION */}
-      <section className="bg-cream py-[120px]">
+      <section className="bg-cream py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center gap-8 text-center">
           <ScrollReveal>
             <h2 className="font-cormorant font-light text-forest leading-tight max-w-[700px]" style={{ fontSize: "clamp(32px, 5vw, 60px)" }}>
@@ -118,7 +118,7 @@ export default function AboutPage() {
       </section>
 
       {/* SECTION 4.4: WHAT'S COMING */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center gap-10 text-center">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">WHAT&apos;S NEXT</p>
@@ -156,7 +156,7 @@ export default function AboutPage() {
 
       {/* SECTION 4.5: FINAL CTA */}
       <section
-        className="relative py-[120px]"
+        className="relative py-16 md:py-[120px]"
         style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.07) 0%, transparent 60%), #060D07" }}
       >
         <div className="max-w-2xl mx-auto px-6 flex flex-col items-center gap-8 text-center">

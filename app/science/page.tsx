@@ -18,7 +18,7 @@ export default function SciencePage() {
       {/* SECTION 2.1: HERO */}
       <section className="relative bg-void pt-[72px]" style={{ minHeight: "85vh" }}>
         <MolecularCanvas3D />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 flex flex-col gap-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">THE AHARA SCIENCE</p>
           <h1 className="font-cormorant font-light text-white leading-tight max-w-[700px]" style={{ fontSize: "clamp(40px, 7vw, 90px)" }}>
             We don&apos;t formulate<br />by intuition.<br />We formulate by evidence.
@@ -35,7 +35,7 @@ export default function SciencePage() {
       </section>
 
       {/* SECTION 2.2: THE CORE INSIGHT */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6 flex flex-col gap-8">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">THE REAL PROBLEM</p>
@@ -60,7 +60,7 @@ export default function SciencePage() {
       </section>
 
       {/* SECTION 2.3: THE FOUR PHASES */}
-      <section className="bg-void py-[120px]">
+      <section className="bg-void py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-12">
           <ScrollReveal className="text-center">
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">HOW WE FORMULATE</p>
@@ -125,7 +125,7 @@ export default function SciencePage() {
       </section>
 
       {/* SECTION 2.4: THE ACTIVE VITAMINS */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-12">THE ACTIVES</p>
@@ -133,7 +133,7 @@ export default function SciencePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* B12 */}
             <ScrollReveal className="flex flex-col gap-6 pr-0 md:pr-12 py-8">
-              <StatCounter target="250" suffix="µg" label="Vitamin B12 per serving" fontSize="90px" />
+              <StatCounter target="250" suffix="µg" label="Vitamin B12 per serving" fontSize="clamp(52px, 14vw, 90px)" />
               <p className="font-mono text-gold text-[11px] tracking-[0.2em] text-center">FORM: CYANOCOBALAMIN</p>
               <p className="font-inter text-center leading-relaxed" style={{ color: "rgba(242,237,227,0.80)", fontSize: "16px" }}>
                 A stable, well-studied form of B12. At 250µg, we dose well above the daily reference intake —
@@ -144,7 +144,7 @@ export default function SciencePage() {
 
             {/* D3 */}
             <ScrollReveal delay={0.15} className="flex flex-col gap-6 pl-0 md:pl-12 py-8 border-t md:border-t-0 md:border-l border-gold/20">
-              <StatCounter target="1" suffix=",000 IU" label="Vitamin D3 per serving" fontSize="90px" />
+              <StatCounter target="1" suffix=",000 IU" label="Vitamin D3 per serving" fontSize="clamp(52px, 14vw, 90px)" />
               <p className="font-mono text-gold text-[11px] tracking-[0.2em] text-center">SOURCE: LICHEN · PLANT-DERIVED</p>
               <p className="font-inter text-center leading-relaxed" style={{ color: "rgba(242,237,227,0.80)", fontSize: "16px" }}>
                 Most Vitamin D3 supplements are derived from lanolin — a byproduct of sheep&apos;s wool — making them
@@ -157,7 +157,7 @@ export default function SciencePage() {
       </section>
 
       {/* SECTION 2.5: THE PROCESS */}
-      <section className="bg-cream py-[120px]">
+      <section className="bg-cream py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-12">
           <ScrollReveal className="text-center">
             <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">OUR PROCESS</p>

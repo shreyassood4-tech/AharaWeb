@@ -96,7 +96,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Your email address"
@@ -108,7 +108,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
               <button
                 type="submit"
                 disabled={loading}
-                className="btn-gold-filled py-3.5 px-6 text-xs whitespace-nowrap disabled:opacity-60"
+                className="btn-gold-filled py-3.5 px-6 text-xs whitespace-nowrap disabled:opacity-60 w-full sm:w-auto"
               >
                 {loading ? "Joining..." : "Join the Waitlist"}
               </button>

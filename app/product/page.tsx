@@ -17,7 +17,7 @@ export default function ProductPage() {
       {/* SECTION 3.1: HERO */}
       <section className="relative bg-void pt-[72px]" style={{ minHeight: "85vh" }}>
         <MolecularCanvas opacity={0.5} />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 flex flex-col gap-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">AHARA · FORMULA 01</p>
           <h1 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(40px, 7vw, 84px)" }}>
             Vitamin B12 + D3<br />Nutritional Powder.
@@ -50,7 +50,7 @@ export default function ProductPage() {
       </section>
 
       {/* SECTION 3.2: INGREDIENT BREAKDOWN */}
-      <section className="bg-abyss py-[120px]">
+      <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col gap-12">
           <ScrollReveal>
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">FULL INGREDIENT BREAKDOWN</p>
@@ -110,7 +110,7 @@ export default function ProductPage() {
       </section>
 
       {/* SECTION 3.3: HOW TO USE */}
-      <section className="bg-cream py-[120px]">
+      <section className="bg-cream py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col gap-12">
           <ScrollReveal>
             <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">DAILY USE</p>
@@ -175,7 +175,7 @@ export default function ProductPage() {
       {/* SECTION 3.4: PRE-LAUNCH CTA */}
       <section
         id="waitlist"
-        className="relative py-[120px]"
+        className="relative py-16 md:py-[120px]"
         style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.07) 0%, transparent 60%), #060D07" }}
       >
         <div className="max-w-2xl mx-auto px-6 flex flex-col items-center gap-8 text-center">
