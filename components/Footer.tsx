@@ -120,7 +120,10 @@ export default function Footer() {
 
         <div className="mt-16 pt-6 border-t" style={{ borderColor: "rgba(196,151,58,0.08)" }}>
           <p className="font-mono text-[11px] text-center" style={{ color: "rgba(242,237,227,0.30)" }}>
-            © 2025 Ahara · Privacy Policy · Terms of Use
+            © 2025 Ahara ·{" "}
+            <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            {" · "}
+            <Link href="/terms" className="hover:text-gold transition-colors">Terms of Use</Link>
           </p>
         </div>
       </div>

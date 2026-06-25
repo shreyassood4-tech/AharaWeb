@@ -6,7 +6,7 @@ import { CheckCircle } from "lucide-react";
 import { WAITLIST_INTERESTS } from "@/lib/constants";
 
 interface WaitlistFormProps {
-  variant?: "dark" | "light";
+  variant?: "dark" | "light" | "hero";
 }
 
 export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
@@ -18,7 +18,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
   const [error, setError] = useState("");
 
   const inputClass = `w-full px-4 py-3 rounded-xl font-inter text-base outline-none transition-all duration-200 ${
-    variant === "dark"
+    variant === "dark" || variant === "hero"
       ? "bg-abyss text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/80"
       : "bg-cream/10 text-charcoal placeholder-charcoal/40 border border-forest/30 focus:border-forest"
   }`;
@@ -30,13 +30,13 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
   };
 
   const validate = (): boolean => {
-    if (!firstName.trim()) {
-      setError("Please enter your first name.");
-      return false;
-    }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address.");
+      return false;
+    }
+    if (variant !== "hero" && !firstName.trim()) {
+      setError("Please enter your first name.");
       return false;
     }
     return true;
@@ -59,21 +59,70 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
       await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          email,
-          interests,
-          timestamp: new Date().toISOString(),
-        }),
+        body: JSON.stringify(
+          variant === "hero"
+            ? { email, source: "hero", firstName: "", interests: [], timestamp: new Date().toISOString() }
+            : { firstName, email, interests, timestamp: new Date().toISOString() }
+        ),
       });
       setSuccess(true);
     } catch {
-      setError("Something went wrong. Please try again.");
+      setError("Something went wrong — try again.");
     } finally {
       setLoading(false);
     }
   };
 
+  // ── HERO VARIANT ────────────────────────────────────────────────────────────
+  if (variant === "hero") {
+    return (
+      <AnimatePresence mode="wait">
+        {success ? (
+          <motion.p
+            key="hero-success"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="font-cormorant text-gold text-2xl font-light"
+          >
+            You&apos;re on the list.
+          </motion.p>
+        ) : (
+          <motion.form
+            key="hero-form"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3 w-full"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="flex gap-3">
+              <input
+                type="email"
+                placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-5 py-3.5 rounded-full bg-abyss text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/70 outline-none font-inter text-sm transition-colors"
+                required
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn-gold-filled py-3.5 px-6 text-xs whitespace-nowrap disabled:opacity-60"
+              >
+                {loading ? "Joining..." : "Join the Waitlist"}
+              </button>
+            </div>
+            {error && (
+              <p className="font-inter text-gold text-sm">{error}</p>
+            )}
+          </motion.form>
+        )}
+      </AnimatePresence>
+    );
+  }
+
+  // ── DEFAULT / LIGHT VARIANT ─────────────────────────────────────────────────
   return (
     <div className="w-full max-w-[480px] mx-auto">
       <AnimatePresence mode="wait">

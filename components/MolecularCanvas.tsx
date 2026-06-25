@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Node {
   x: number;
@@ -18,23 +18,82 @@ interface MolecularCanvasProps {
   opacity?: number;
 }
 
+// Static SVG fallback — 18 nodes + connecting lines, same visual language
+function StaticMolecularSVG({ opacity = 1 }: { opacity?: number }) {
+  const nodes = [
+    [12, 18], [22, 42], [38, 10], [52, 30], [65, 55],
+    [75, 20], [85, 45], [18, 65], [35, 80], [50, 68],
+    [60, 85], [78, 72], [90, 85], [42, 50], [28, 35],
+    [70, 35], [55, 10], [80, 55],
+  ] as [number, number][];
+
+  const goldNodes = [0, 3, 7, 11, 14];
+
+  const connections = [
+    [0, 2], [0, 1], [1, 8], [2, 3], [2, 16], [3, 5], [3, 13],
+    [4, 6], [4, 9], [5, 15], [6, 11], [7, 8], [8, 9], [9, 10],
+    [10, 11], [11, 12], [13, 14], [14, 1], [15, 6], [16, 5],
+  ];
+
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      style={{ opacity: opacity * 0.6 }}
+    >
+      {connections.map(([a, b], i) => (
+        <line
+          key={i}
+          x1={nodes[a][0]}
+          y1={nodes[a][1]}
+          x2={nodes[b][0]}
+          y2={nodes[b][1]}
+          stroke="#C4973A"
+          strokeWidth="0.3"
+          opacity="0.12"
+        />
+      ))}
+      {nodes.map(([x, y], i) => (
+        <circle
+          key={i}
+          cx={x}
+          cy={y}
+          r={goldNodes.includes(i) ? 1.2 : 0.8}
+          fill={goldNodes.includes(i) ? "#C4973A" : "#2D4A2F"}
+          opacity={goldNodes.includes(i) ? 0.7 : 0.6}
+        />
+      ))}
+    </svg>
+  );
+}
+
 export default function MolecularCanvas({ opacity = 1 }: MolecularCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
   const nodesRef = useRef<Node[]>([]);
+  const [useStaticFallback, setUseStaticFallback] = useState(false);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isLowEnd = navigator.hardwareConcurrency <= 4;
+    const isSmall = window.innerWidth < 768;
+
+    if (isLowEnd || isSmall || prefersReduced) {
+      setUseStaticFallback(true);
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const isMobile = window.innerWidth < 768;
-    const totalNodes = isMobile ? 25 : 50;
-    const goldCount = isMobile ? 5 : 10;
+    const totalNodes = 50;
+    const goldCount = 10;
 
     const resize = () => {
       const parent = canvas.parentElement;
@@ -72,7 +131,6 @@ export default function MolecularCanvas({ opacity = 1 }: MolecularCanvasProps) {
     let mouseY = -1000;
 
     const onMouseMove = (e: MouseEvent) => {
-      if (isMobile) return;
       const rect = canvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
@@ -82,21 +140,6 @@ export default function MolecularCanvas({ opacity = 1 }: MolecularCanvasProps) {
     const CONNECT_DISTANCE = 150;
     const MOUSE_ATTRACT_DISTANCE = 200;
     const MOUSE_ATTRACT_STRENGTH = 0.02;
-
-    if (prefersReduced) {
-      nodesRef.current.forEach((node) => {
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
-        ctx.globalAlpha = node.opacity * 0.8;
-        ctx.fill();
-      });
-      ctx.globalAlpha = 1;
-      return () => {
-        window.removeEventListener("resize", resize);
-        canvas.removeEventListener("mousemove", onMouseMove);
-      };
-    }
 
     const startTime = performance.now();
 
@@ -187,6 +230,10 @@ export default function MolecularCanvas({ opacity = 1 }: MolecularCanvasProps) {
       document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
+
+  if (useStaticFallback) {
+    return <StaticMolecularSVG opacity={opacity} />;
+  }
 
   return (
     <canvas

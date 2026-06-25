@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import MolecularCanvas from "@/components/MolecularCanvas";
-import MolecularGlobe3D from "@/components/MolecularGlobe3D";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import StatCounter from "@/components/StatCounter";
 import WaitlistForm from "@/components/WaitlistForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import { FAQ_ITEMS } from "@/lib/constants";
-import { Atom, ArrowUpFromLine, ShieldCheck, ChevronDown } from "lucide-react";
+import { Atom, ArrowUpFromLine, ShieldCheck } from "lucide-react";
+import HeroSection from "@/components/HeroSection";
+import MagneticButton from "@/components/MagneticButton";
+import TiltCard from "@/components/TiltCard";
+import TypewriterList from "@/components/TypewriterList";
 
 export const metadata: Metadata = {
   title: "Ahara — Science-Backed Nutrition for Vegetarian Diets",
@@ -38,58 +40,20 @@ function CornerMarks() {
   );
 }
 
+const INGREDIENT_LINES = [
+  { role: "CARRIER BASE", ingredients: "Sattu · Oat Flour · Jaggery" },
+  { role: "D3 ABSORPTION", ingredients: "Sesame · Almonds · Groundnut Oil" },
+  { role: "B12 SUPPORT", ingredients: "Inulin · Chicory Root Fibre" },
+  { role: "PLANT COMPOUNDS", ingredients: "Blueberry · Apple Peel · Green Tea" },
+  { role: "ABSORPTION BOOST", ingredients: "Turmeric · Black Pepper · Ginger" },
+  { role: "ACTIVE VITAMINS", ingredients: "B12 (250µg) · D3 (1,000 IU)" },
+];
+
 export default function HomePage() {
   return (
     <>
-      {/* SECTION 1: HERO */}
-      <section className="relative min-h-screen flex items-center bg-void pt-[72px]">
-        <MolecularCanvas />
-        <CornerMarks />
-
-        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-20">
-          <div className="flex flex-col gap-8">
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">
-              EST. 2025 · NUTRACEUTICAL RESEARCH · INDIA
-            </p>
-
-            <h1 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(44px, 7vw, 88px)" }}>
-              Your body deserves<br />more than a guess.
-            </h1>
-
-            <p className="font-inter text-lg leading-relaxed max-w-[520px]" style={{ color: "rgba(242,237,227,0.75)", fontSize: "19px" }}>
-              Most supplements count on dosage.<br />
-              Ahara is built around absorption —<br />
-              the science of actually getting nutrients<br />
-              from the powder into your bloodstream.
-            </p>
-
-            <div className="flex flex-col gap-3 max-w-[520px]">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-1 px-5 py-3.5 rounded-full bg-abyss text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/70 outline-none font-inter text-sm transition-colors"
-                />
-                <Link href="#waitlist" className="btn-gold-filled py-3.5 px-6 text-xs whitespace-nowrap">
-                  Join the Waitlist
-                </Link>
-              </div>
-              <p className="font-mono text-[11px] tracking-widest" style={{ color: "rgba(242,237,227,0.40)" }}>
-                Currently in development · Be the first to know
-              </p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center justify-center relative" style={{ height: "520px" }}>
-            <MolecularGlobe3D />
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <p className="font-mono text-gold text-[10px] tracking-[0.25em] uppercase">Scroll</p>
-          <ChevronDown className="text-gold animate-bounce" size={16} />
-        </div>
-      </section>
+      {/* SECTION 1: HERO — CharacterReveal H1 + Parallax */}
+      <HeroSection />
 
       {/* SECTION 2: THE WAKE-UP CALL */}
       <section className="bg-abyss py-[120px]">
@@ -150,48 +114,35 @@ export default function HomePage() {
           <ScrollReveal delay={0.2} stagger>
             <div className="flex gap-4">
               <RevealItem>
-                <div className="glass-card p-6 flex flex-col gap-1">
+                <TiltCard className="glass-card p-6 flex flex-col gap-1">
                   <span className="font-cormorant text-gold text-4xl font-light">250 µg</span>
                   <span className="font-mono text-cream text-xs tracking-widest">Vitamin B12 per serving</span>
-                </div>
+                </TiltCard>
               </RevealItem>
               <RevealItem>
-                <div className="glass-card p-6 flex flex-col gap-1">
+                <TiltCard className="glass-card p-6 flex flex-col gap-1">
                   <span className="font-cormorant text-gold text-4xl font-light">1,000 IU</span>
                   <span className="font-mono text-cream text-xs tracking-widest">Plant-derived D3 per serving</span>
-                </div>
+                </TiltCard>
               </RevealItem>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <Link href="/product" className="btn-gold-outline inline-block">
-              Explore the product →
-            </Link>
+            <MagneticButton>
+              <Link href="/product" className="btn-gold-outline inline-block">
+                Explore the product →
+              </Link>
+            </MagneticButton>
           </ScrollReveal>
         </div>
 
+        {/* Ingredient list — Typewriter effect (7E) */}
         <div className="bg-forest px-8 md:px-16 py-20 flex flex-col justify-center gap-6">
           <ScrollReveal>
             <p className="font-mono text-gold text-[11px] tracking-[0.2em] uppercase mb-4">WHAT&apos;S INSIDE</p>
           </ScrollReveal>
-          <ScrollReveal stagger>
-            {[
-              { role: "CARRIER BASE", ingredients: "Sattu · Oat Flour · Jaggery" },
-              { role: "D3 ABSORPTION", ingredients: "Sesame · Almonds · Groundnut Oil" },
-              { role: "B12 SUPPORT", ingredients: "Inulin · Chicory Root Fibre" },
-              { role: "PLANT COMPOUNDS", ingredients: "Blueberry · Apple Peel · Green Tea" },
-              { role: "ABSORPTION BOOST", ingredients: "Turmeric · Black Pepper · Ginger" },
-              { role: "ACTIVE VITAMINS", ingredients: "B12 (250µg) · D3 (1,000 IU)" },
-            ].map((line, i) => (
-              <RevealItem key={i}>
-                <div className="flex gap-3 py-2 border-b border-gold/10 last:border-0 font-mono text-sm">
-                  <span className="text-gold min-w-[180px] text-[11px] tracking-wider">{line.role}</span>
-                  <span className="text-cream/80 text-[12px]">{line.ingredients}</span>
-                </div>
-              </RevealItem>
-            ))}
-          </ScrollReveal>
+          <TypewriterList lines={INGREDIENT_LINES} />
         </div>
       </section>
 
@@ -217,39 +168,41 @@ export default function HomePage() {
 
           <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-4">
             <RevealItem>
-              <div className="glass-card p-8 flex flex-col gap-4">
+              <TiltCard className="glass-card p-8 flex flex-col gap-4">
                 <Atom className="text-gold" size={32} />
                 <h3 className="font-cormorant font-semibold text-white text-xl">Built on research</h3>
                 <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
                   Every formula decision comes from peer-reviewed nutritional science. Our Chief Science Officer
                   reviews the literature before a single ingredient is chosen.
                 </p>
-              </div>
+              </TiltCard>
             </RevealItem>
             <RevealItem>
-              <div className="glass-card p-8 flex flex-col gap-4">
+              <TiltCard className="glass-card p-8 flex flex-col gap-4">
                 <ArrowUpFromLine className="text-gold" size={32} />
                 <h3 className="font-cormorant font-semibold text-white text-xl">Designed for absorption</h3>
                 <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
                   We pair vitamins with the co-factors your body needs to actually take them up — the healthy fats
                   and prebiotic fibers that make absorption possible.
                 </p>
-              </div>
+              </TiltCard>
             </RevealItem>
             <RevealItem>
-              <div className="glass-card p-8 flex flex-col gap-4">
+              <TiltCard className="glass-card p-8 flex flex-col gap-4">
                 <ShieldCheck className="text-gold" size={32} />
                 <h3 className="font-cormorant font-semibold text-white text-xl">Validated before launch</h3>
                 <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
                   We don&apos;t go to market before going through rigorous internal scientific validation.
                   Speed is never worth getting it wrong.
                 </p>
-              </div>
+              </TiltCard>
             </RevealItem>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <Link href="/science" className="btn-gold-outline">See how we do it →</Link>
+            <MagneticButton>
+              <Link href="/science" className="btn-gold-outline">See how we do it →</Link>
+            </MagneticButton>
           </ScrollReveal>
         </div>
         <SectionDivider />
@@ -288,14 +241,14 @@ export default function HomePage() {
               },
             ].map((card, i) => (
               <RevealItem key={i}>
-                <div
+                <TiltCard
                   className="p-8 rounded-2xl flex flex-col gap-4"
                   style={{ background: "#2D4A2F", border: "1px solid rgba(196,151,58,0.30)" }}
                 >
                   <span className="font-mono text-gold text-xs tracking-[0.2em]">{card.method}</span>
                   <h3 className="font-cormorant text-cream text-2xl font-light">{card.title}</h3>
                   <p className="font-inter text-cream/75 text-sm leading-relaxed">{card.body}</p>
-                </div>
+                </TiltCard>
               </RevealItem>
             ))}
           </ScrollReveal>

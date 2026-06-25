@@ -15,6 +15,7 @@ export const NAV_LINKS = [
   { label: "SCIENCE", href: "/science" },
   { label: "PRODUCT", href: "/product" },
   { label: "ABOUT", href: "/about" },
+  { label: "RESEARCH", href: "/research" },
 ] as const;
 
 // Waitlist interest options

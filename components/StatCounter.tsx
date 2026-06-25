@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 interface StatCounterProps {
   target: string;
@@ -14,6 +15,7 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
   const [triggered, setTriggered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasRunRef = useRef(false);
+  const controls = useAnimation();
 
   const numericMatch = target.match(/^(\d+)/);
   const numericTarget = numericMatch ? parseInt(numericMatch[1]) : null;
@@ -30,7 +32,10 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
           setTriggered(true);
 
           if (numericTarget === null) {
-            setTimeout(() => setDisplayed(target), 200);
+            setTimeout(() => {
+              setDisplayed(target);
+              triggerGlow();
+            }, 200);
             return;
           }
 
@@ -42,7 +47,11 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
             const eased = 1 - Math.pow(1 - progress, 3);
             const current = Math.round(eased * numericTarget);
             setDisplayed(`${current}${nonNumericSuffix}`);
-            if (progress < 1) requestAnimationFrame(tick);
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              triggerGlow();
+            }
           };
           requestAnimationFrame(tick);
         }
@@ -52,6 +61,7 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
 
     observer.observe(el);
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numericTarget, nonNumericSuffix, target]);
 
   useEffect(() => {
@@ -60,14 +70,27 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
     }
   }, [numericTarget, target, triggered]);
 
+  const triggerGlow = () => {
+    controls.start({
+      textShadow: [
+        "0 0 0px transparent",
+        "0 0 60px rgba(196,151,58,0.8)",
+        "0 0 20px rgba(196,151,58,0.3)",
+      ],
+      scale: [1, 1.04, 1],
+      transition: { duration: 0.8, ease: "easeOut" },
+    });
+  };
+
   return (
     <div ref={ref} className="flex flex-col items-center gap-4">
-      <span
+      <motion.span
+        animate={controls}
         className="font-cormorant font-light text-gold gold-stat leading-none"
-        style={{ fontSize, lineHeight: 1 }}
+        style={{ fontSize, lineHeight: 1, display: "inline-block" }}
       >
         {displayed}{suffix}
-      </span>
+      </motion.span>
       <p className="font-inter text-cream text-center text-base leading-relaxed max-w-[220px]" style={{ opacity: 0.85 }}>
         {label}
       </p>
