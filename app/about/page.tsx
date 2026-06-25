@@ -46,7 +46,7 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <RevealItem>
               <div className="glass-card p-8 flex flex-col gap-6">
                 <div className="w-[72px] h-[72px] rounded-full bg-gold flex items-center justify-center">
@@ -115,6 +115,20 @@ export default function AboutPage() {
                 </div>
                 <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
                   Leads Ahara&apos;s marketing strategy, content, and brand communications. Focused on building genuine awareness around the science of nutrition and growing the community before launch.
+                </p>
+              </div>
+            </RevealItem>
+            <RevealItem>
+              <div className="glass-card p-8 flex flex-col gap-6">
+                <div className="w-[72px] h-[72px] rounded-full flex items-center justify-center" style={{ background: "#1a1a2e" }}>
+                  <span className="font-cormorant text-cream/50 text-2xl font-semibold">T</span>
+                </div>
+                <div>
+                  <h3 className="font-cormorant text-white text-2xl font-semibold">Thak</h3>
+                  <p className="font-mono text-gold text-[11px] tracking-[0.2em] mt-1">JUST THERE</p>
+                </div>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
+                  Doesn&apos;t really do anything, just there.
                 </p>
               </div>
             </RevealItem>
