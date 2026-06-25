@@ -58,10 +58,10 @@ export default function HeroSection() {
             EST. 2025 · NUTRACEUTICAL RESEARCH · INDIA
           </p>
 
-          <div style={{ fontSize: "clamp(44px, 7vw, 88px)", lineHeight: 1.1 }}>
+          <div style={{ fontSize: "clamp(40px, 4.5vw, 60px)", lineHeight: 1.1 }}>
             <CharacterReveal
               className="font-cormorant font-light text-white leading-tight"
-              style={{ fontSize: "clamp(44px, 7vw, 88px)" }}
+              style={{ fontSize: "clamp(40px, 4.5vw, 60px)" }}
             >
               Your body deserves more than a guess.
             </CharacterReveal>
