@@ -13,7 +13,7 @@ export default async function Image() {
         <div style={{ position: 'absolute', top: 40, right: 40, width: 28, height: 28, borderTop: '1px solid rgba(196,151,58,0.4)', borderRight: '1px solid rgba(196,151,58,0.4)' }} />
         <div style={{ position: 'absolute', bottom: 40, left: 40, width: 28, height: 28, borderBottom: '1px solid rgba(196,151,58,0.4)', borderLeft: '1px solid rgba(196,151,58,0.4)' }} />
         <div style={{ position: 'absolute', bottom: 40, right: 40, width: 28, height: 28, borderBottom: '1px solid rgba(196,151,58,0.4)', borderRight: '1px solid rgba(196,151,58,0.4)' }} />
-        <div style={{ color: '#C4973A', fontSize: 13, letterSpacing: '0.15em', fontFamily: 'monospace', marginBottom: 24 }}>EST. 2025  ·  NUTRACEUTICAL RESEARCH  ·  INDIA</div>
+        <div style={{ color: '#C4973A', fontSize: 13, letterSpacing: '0.15em', fontFamily: 'monospace', marginBottom: 24 }}>EST. 2026  ·  NUTRACEUTICAL RESEARCH  ·  INDIA</div>
         <div style={{ color: '#FFFFFF', fontSize: 96, fontWeight: 300, lineHeight: 1.05, marginBottom: 24 }}>Ahara</div>
         <div style={{ color: 'rgba(242,237,227,0.75)', fontSize: 26, lineHeight: 1.5, maxWidth: 600 }}>Science-backed nutrition for vegetarian diets. Built around how your body actually absorbs nutrients.</div>
         <div style={{ position: 'absolute', bottom: 60, left: 80, display: 'flex', alignItems: 'center', gap: 16 }}>
