@@ -19,7 +19,7 @@ export default function ProductPage() {
         <MolecularCanvas opacity={0.5} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">AHARA · FORMULA 01</p>
-          <h1 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(40px, 7vw, 84px)" }}>
+          <h1 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(28px, 7vw, 84px)" }}>
             Vitamin B12 + D3<br />Nutritional Powder.
           </h1>
           <p className="font-inter leading-relaxed max-w-[520px]" style={{ color: "rgba(242,237,227,0.72)", fontSize: "19px" }}>

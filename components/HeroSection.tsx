@@ -54,14 +54,15 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-20">
         <motion.div className="flex flex-col gap-8" style={{ y: headlineY }}>
-          <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">
-            EST. 2026 · NUTRACEUTICAL RESEARCH · INDIA
+          <p className="font-mono text-gold text-xs tracking-[0.12em] md:tracking-[0.2em] uppercase">
+            <span className="hidden sm:inline">EST. 2026 · NUTRACEUTICAL RESEARCH · INDIA</span>
+            <span className="sm:hidden">EST. 2026 · INDIA</span>
           </p>
 
-          <div style={{ fontSize: "clamp(40px, 4.5vw, 60px)", lineHeight: 1.1 }}>
+          <div style={{ fontSize: "clamp(28px, 7.5vw, 60px)", lineHeight: 1.1 }}>
             <CharacterReveal
               className="font-cormorant font-light text-white leading-tight"
-              style={{ fontSize: "clamp(40px, 4.5vw, 60px)" }}
+              style={{ fontSize: "clamp(28px, 7.5vw, 60px)" }}
             >
               Your body deserves more than a guess.
             </CharacterReveal>

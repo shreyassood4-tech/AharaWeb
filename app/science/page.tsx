@@ -20,7 +20,7 @@ export default function SciencePage() {
         <MolecularCanvas3D />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">THE AHARA SCIENCE</p>
-          <h1 className="font-cormorant font-light text-white leading-tight max-w-[700px]" style={{ fontSize: "clamp(40px, 7vw, 90px)" }}>
+          <h1 className="font-cormorant font-light text-white leading-tight max-w-[700px]" style={{ fontSize: "clamp(28px, 7vw, 90px)" }}>
             We don&apos;t formulate<br />by intuition.<br />We formulate by evidence.
           </h1>
           <p className="font-inter leading-relaxed max-w-[540px]" style={{ color: "rgba(242,237,227,0.72)", fontSize: "19px" }}>

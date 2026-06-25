@@ -274,7 +274,7 @@ export default function HomePage() {
             <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">GET EARLY ACCESS</p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(40px, 6vw, 72px)" }}>
+            <h2 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(28px, 6vw, 72px)" }}>
               Be the first to<br />know when we launch.
             </h2>
           </ScrollReveal>
