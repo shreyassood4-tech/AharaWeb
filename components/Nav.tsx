@@ -30,8 +30,8 @@ export default function Nav() {
             className="rounded-lg"
             priority
           />
-          <span className="font-mono text-xs tracking-[0.15em] text-cream/50 hidden sm:block">
-            AHARA
+          <span className="font-cormorant text-xl font-light text-cream hidden sm:block" style={{ letterSpacing: "0.08em" }}>
+            Ahara
           </span>
         </div>
 
