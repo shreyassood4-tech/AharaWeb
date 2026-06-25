@@ -31,7 +31,7 @@ export default function Nav() {
             priority
           />
           <span className="font-mono text-xs tracking-[0.15em] text-cream/50 hidden sm:block">
-            NUTRACEUTICAL RESEARCH
+            AHARA
           </span>
         </div>
 
