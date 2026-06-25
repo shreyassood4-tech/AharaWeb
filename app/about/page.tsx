@@ -88,10 +88,13 @@ export default function AboutPage() {
                   ))}
                 </div>
                 <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
-                  Leads all scientific research, product formulation, nutritional science, and literature review.
-                  Ensures every Ahara product is grounded in peer-reviewed evidence before it goes anywhere near
-                  a manufacturing line.
+                  Leads all scientific research, product formulation, and literature review. Developed Ahara&apos;s formula through an independent research project mentored by the Department of Biotechnology, University of Delhi.
                 </p>
+                <div className="flex flex-col gap-2 pt-2 border-t border-gold/20">
+                  <p className="font-mono text-gold text-[10px] tracking-[0.15em]">GOLD CREST AWARD — British Science Association</p>
+                  <p className="font-mono text-cream/50 text-[10px] tracking-[0.1em]">Published · International Journal of High School Research</p>
+                  <p className="font-mono text-cream/50 text-[10px] tracking-[0.1em]">Mentored · University of Delhi, Dept. of Biotechnology</p>
+                </div>
               </div>
             </RevealItem>
           </ScrollReveal>

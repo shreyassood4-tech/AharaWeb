@@ -208,6 +208,87 @@ export default function HomePage() {
         <SectionDivider />
       </section>
 
+      {/* SECTION: BACKED BY SCIENCE */}
+      <section className="bg-void py-16 md:py-[120px]">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-12">
+          <ScrollReveal className="text-center">
+            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">CREDENTIALS</p>
+            <h2 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
+              Research you can verify.
+            </h2>
+            <p className="font-inter mt-4 max-w-[580px] mx-auto" style={{ color: "rgba(242,237,227,0.65)", fontSize: "17px", lineHeight: 1.75 }}>
+              Ahara&apos;s formula was built through independent scientific research — not guesswork. Here&apos;s the paper trail.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <RevealItem>
+              <TiltCard className="glass-card p-8 flex flex-col gap-5">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-gold text-xl font-light leading-none mt-0.5">01</span>
+                  <div>
+                    <p className="font-mono text-gold text-[11px] tracking-[0.2em] mb-2">PUBLISHED RESEARCH</p>
+                    <h3 className="font-cormorant text-white text-xl leading-snug">International Journal of<br />High School Research</h3>
+                  </div>
+                </div>
+                <p className="font-inter text-sm leading-relaxed italic" style={{ color: "rgba(242,237,227,0.72)" }}>
+                  &ldquo;A Bioinformatics Study to Develop a Functional Food to Address Vitamin B12 and D3 Deficiency in Vegetarian Diets&rdquo;
+                </p>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.55)" }}>
+                  Authored and published by Meagan Ghai, Chief Science Officer.
+                </p>
+              </TiltCard>
+            </RevealItem>
+
+            <RevealItem>
+              <TiltCard className="glass-card p-8 flex flex-col gap-5">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-gold text-xl font-light leading-none mt-0.5">02</span>
+                  <div>
+                    <p className="font-mono text-gold text-[11px] tracking-[0.2em] mb-2">GOLD CREST AWARD</p>
+                    <h3 className="font-cormorant text-white text-xl leading-snug">British Science Association</h3>
+                  </div>
+                </div>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.72)" }}>
+                  A nationally recognised award for independent STEM research requiring 70+ hours of work. Meagan met 13 out of 15 assessment criteria.
+                </p>
+              </TiltCard>
+            </RevealItem>
+
+            <RevealItem>
+              <TiltCard className="glass-card p-8 flex flex-col gap-5">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-gold text-xl font-light leading-none mt-0.5">03</span>
+                  <div>
+                    <p className="font-mono text-gold text-[11px] tracking-[0.2em] mb-2">UNIVERSITY MENTORSHIP</p>
+                    <h3 className="font-cormorant text-white text-xl leading-snug">University of Delhi</h3>
+                  </div>
+                </div>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.72)" }}>
+                  Research conducted under Nirupma Singh, Department of Biotechnology, Faculty of Technology, University of Delhi.
+                </p>
+              </TiltCard>
+            </RevealItem>
+
+            <RevealItem>
+              <TiltCard className="glass-card p-8 flex flex-col gap-5">
+                <div className="flex items-start gap-4">
+                  <span className="font-mono text-gold text-xl font-light leading-none mt-0.5">04</span>
+                  <div>
+                    <p className="font-mono text-gold text-[11px] tracking-[0.2em] mb-2">COMPUTATIONAL FORMULATION</p>
+                    <h3 className="font-cormorant text-white text-xl leading-snug">Molecular Docking Research</h3>
+                  </div>
+                </div>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.72)" }}>
+                  Formula developed using AutoDock Vina and STRING network analysis to map bioactive compound interactions with B12 and D3 transport proteins.
+                </p>
+              </TiltCard>
+            </RevealItem>
+          </ScrollReveal>
+        </div>
+        <SectionDivider />
+      </section>
+
       {/* SECTION 5: HOW YOU USE IT */}
       <section className="bg-cream py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6">
