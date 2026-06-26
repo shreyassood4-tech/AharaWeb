@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MolecularCanvas3D from "@/components/MolecularCanvas3D";
+import AbsorptionAnimation from "@/components/AbsorptionAnimation";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import StatCounter from "@/components/StatCounter";
@@ -55,6 +56,15 @@ export default function SciencePage() {
               Ahara starts with a different question: what does the body need around this vitamin for it to move
               from the gut into circulation? Then we build the entire formula around those answers.
             </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* SECTION 2.2b: ABSORPTION ANIMATION */}
+      <section className="bg-abyss pb-16 md:pb-[120px]">
+        <div className="max-w-5xl mx-auto px-6">
+          <ScrollReveal>
+            <AbsorptionAnimation />
           </ScrollReveal>
         </div>
       </section>
