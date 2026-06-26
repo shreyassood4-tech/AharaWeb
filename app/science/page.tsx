@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import MolecularCanvas3D from "@/components/MolecularCanvas3D";
-import AbsorptionAnimation from "@/components/AbsorptionAnimation";
 import AbsorptionComparison from "@/components/AbsorptionComparison";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
@@ -61,28 +60,22 @@ export default function SciencePage() {
         </div>
       </section>
 
-      {/* SECTION 2.2b: ABSORPTION ANIMATION */}
+      {/* SECTION 2.2b: ABSORPTION COMPARISON */}
       <section className="bg-abyss pb-16 md:pb-[120px]">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col gap-16 md:gap-24">
-          <ScrollReveal>
-            <AbsorptionAnimation />
+        <div className="max-w-5xl mx-auto px-6 flex flex-col gap-8">
+          <ScrollReveal className="text-center">
+            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">THE DIFFERENCE</p>
+            <h3 className="font-cormorant font-light text-white leading-tight mx-auto max-w-[640px]" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+              Same vitamins. A different fate inside your body.
+            </h3>
+            <p className="font-inter mt-4 max-w-[560px] mx-auto" style={{ color: "rgba(242,237,227,0.65)", fontSize: "16px", lineHeight: 1.7 }}>
+              A standard supplement floods you with dosage but ignores the conditions absorption requires —
+              so most of it never crosses the gut wall. Ahara builds the pathway in.
+            </p>
           </ScrollReveal>
-
-          <div className="flex flex-col gap-8">
-            <ScrollReveal className="text-center">
-              <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">THE DIFFERENCE</p>
-              <h3 className="font-cormorant font-light text-white leading-tight mx-auto max-w-[640px]" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
-                Same vitamins. A different fate inside your body.
-              </h3>
-              <p className="font-inter mt-4 max-w-[560px] mx-auto" style={{ color: "rgba(242,237,227,0.65)", fontSize: "16px", lineHeight: 1.7 }}>
-                A standard supplement floods you with dosage but ignores the conditions absorption requires —
-                so most of it never crosses the gut wall. Ahara builds the pathway in.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <AbsorptionComparison />
-            </ScrollReveal>
-          </div>
+          <ScrollReveal delay={0.15}>
+            <AbsorptionComparison />
+          </ScrollReveal>
         </div>
       </section>
 
