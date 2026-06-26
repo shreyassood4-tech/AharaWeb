@@ -3,28 +3,27 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Homepage "What goes in vs. what reaches you" comparison.
- * Left: standard supplement — grey particles blocked at the gut wall, one trickles through.
- * Right: Ahara — gold particles, co-factor-primed wall, most pass into an active bloodstream.
- * Pure SVG + CSS keyframes. Triggers/pauses via IntersectionObserver; respects reduced-motion.
+ * Homepage "what goes in vs. what reaches you" comparison.
+ * Strict vertical zone stack per panel (label row → particle zone → gut-wall band →
+ * bloodstream zone) so labels and particles never overlap.
+ * Pure SVG + CSS keyframes; IntersectionObserver trigger; reduced-motion fallback.
  */
 
-const VILLI_PATH =
-  "M0,168 Q12,150 24,168 T48,168 T72,168 T96,168 T120,168 T144,168 T168,168 T192,168 T216,168 T240,168 T264,168 T288,168 T312,168";
+const VILLI =
+  "M0,22 Q10,12 20,22 T40,22 T60,22 T80,22 T100,22 T120,22 T140,22 T160,22 T180,22 T200,22 T220,22 T240,22 T260,22 T280,22 T300,22";
 
 function Panel({ variant, count }: { variant: "standard" | "ahara"; count: number }) {
   const isAhara = variant === "ahara";
-  const particleColor = isAhara ? "#C4973A" : "#9E9E9E";
+  const color = isAhara ? "#C4973A" : "#9E9E9E";
   const xs = Array.from({ length: count }, (_, i) =>
-    Math.round(40 + i * (220 / Math.max(count - 1, 1)))
+    Math.round(30 + i * (240 / Math.max(count - 1, 1)))
   );
-
-  // standard: only the middle particle passes. ahara: most pass (every 4th, offset 1, is blocked).
-  const passes = (i: number) =>
-    isAhara ? i % 4 !== 1 : i === Math.floor(count / 2);
+  // standard: only the middle particle passes. ahara: most pass (every 4th, offset 1, blocked).
+  const passes = (i: number) => (isAhara ? i % 4 !== 1 : i === Math.floor(count / 2));
+  const bloodCells = isAhara ? [30, 90, 150, 210, 270] : [150];
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       <p
         className="font-mono text-[11px] tracking-[0.2em] uppercase text-center"
         style={{ color: isAhara ? "#C4973A" : "rgba(26,26,26,0.50)" }}
@@ -32,71 +31,98 @@ function Panel({ variant, count }: { variant: "standard" | "ahara"; count: numbe
         {isAhara ? "AHARA" : "STANDARD SUPPLEMENT"}
       </p>
 
+      {/* Card with strict vertical zones */}
       <div
-        className="rounded-2xl overflow-hidden"
+        className="flex flex-col rounded-2xl overflow-hidden"
         style={{
-          background: isAhara ? "rgba(255,255,255,0.70)" : "rgba(255,255,255,0.50)",
+          minHeight: 320,
+          background: isAhara ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.52)",
           border: isAhara ? "1px solid rgba(196,151,58,0.40)" : "1px solid rgba(26,26,26,0.10)",
           boxShadow: isAhara ? "0 8px 36px rgba(196,151,58,0.12)" : "none",
         }}
       >
-        <svg viewBox="0 0 300 320" className="w-full h-auto" role="img"
-             aria-label={isAhara
-               ? "Ahara: nutrients pass through the primed gut wall into an active bloodstream."
-               : "Standard supplement: most nutrients are blocked at the gut wall."}
-             xmlns="http://www.w3.org/2000/svg">
-          <text x="14" y="24" className="aca-zone">GUT LUMEN</text>
+        {/* GUT LUMEN label row */}
+        <div
+          className="font-mono uppercase"
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.1em",
+            color: "rgba(26,26,26,0.5)",
+            padding: "10px 14px",
+            background: "rgba(0,0,0,0.04)",
+            borderBottom: "1px solid rgba(0,0,0,0.06)",
+          }}
+        >
+          Gut Lumen
+        </div>
 
-          {/* Gut wall glow (ahara only) */}
-          {isAhara && (
-            <rect className="aca-wallglow" x="0" y="150" width="300" height="36"
-                  fill="#3D6B4F" />
-          )}
+        {/* Particle zone */}
+        <div style={{ flex: 1, minHeight: 120, position: "relative", overflow: "hidden" }}>
+          <svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid meet"
+               className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            {xs.map((x, i) => (
+              <circle
+                key={i}
+                className={passes(i) ? "aca-through" : "aca-blocked"}
+                cx={x}
+                cy="12"
+                r="5.5"
+                fill={color}
+                style={{ animationDelay: `${(i % count) * 0.35}s` }}
+              />
+            ))}
+          </svg>
+        </div>
 
-          {/* Gut wall + villi texture */}
-          <path d={VILLI_PATH} fill="none"
-                stroke={isAhara ? "rgba(196,151,58,0.55)" : "rgba(26,26,26,0.28)"} strokeWidth="1.5" />
-          <line x1="0" y1="186" x2="300" y2="186"
-                stroke={isAhara ? "rgba(196,151,58,0.30)" : "rgba(26,26,26,0.16)"} strokeWidth="1"
-                strokeDasharray={isAhara ? "2 10" : "0"} />
-          <text x="150" y="204" textAnchor="middle"
-                className="aca-walllabel"
-                style={{ fill: isAhara ? "rgba(61,107,79,0.95)" : "rgba(158,158,158,0.85)" }}>
-            {isAhara ? "CO-FACTORS ACTIVE" : "NO CO-FACTORS"}
-          </text>
+        {/* Gut wall band */}
+        <div style={{ height: 32, position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <svg viewBox="0 0 300 32" preserveAspectRatio="none"
+               className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d={VILLI} fill="none"
+                  stroke={isAhara ? "rgba(196,151,58,0.55)" : "rgba(26,26,26,0.28)"} strokeWidth="1.5" />
+            {isAhara && (
+              <line x1="0" y1="22" x2="300" y2="22" stroke="rgba(196,151,58,0.30)" strokeWidth="1" strokeDasharray="2 10" />
+            )}
+          </svg>
+          <span
+            className="relative font-mono uppercase"
+            style={{
+              zIndex: 10,
+              fontSize: 10,
+              letterSpacing: "0.14em",
+              padding: "2px 8px",
+              borderRadius: 6,
+              background: "rgba(250,247,242,0.85)",
+              color: isAhara ? "rgba(61,107,79,0.95)" : "rgba(158,158,158,0.95)",
+            }}
+          >
+            {isAhara ? "Co-Factors Active" : "No Co-Factors"}
+          </span>
+        </div>
 
-          {/* Bloodstream */}
-          <rect x="0" y="250" width="300" height="50"
-                fill={isAhara ? "rgba(196,151,58,0.10)" : "rgba(26,26,26,0.03)"} />
-          <line x1="0" y1="250" x2="300" y2="250"
-                stroke={isAhara ? "rgba(196,151,58,0.35)" : "rgba(26,26,26,0.15)"} strokeWidth="1.2" />
-          <text x="14" y="312" className="aca-zone">BLOODSTREAM</text>
-
-          {/* Bloodstream cells */}
-          {(isAhara ? [30, 90, 150, 210, 270] : [150]).map((x, i) => (
-            <circle key={`bs-${i}`} className="aca-drift" cx={x} cy={272 + (i % 2) * 12} r="4.5"
-                    fill={isAhara ? "rgba(196,151,58,0.30)" : "rgba(158,158,158,0.25)"}
-                    style={{ animationDelay: `${i * 0.7}s` }} />
-          ))}
-
-          {/* Falling nutrient particles */}
-          {xs.map((x, i) => (
-            <circle
-              key={`p-${i}`}
-              className={passes(i) ? "aca-through" : "aca-blocked"}
-              cx={x}
-              cy="22"
-              r="5.5"
-              fill={particleColor}
-              style={{ animationDelay: `${(i % count) * 0.35}s` }}
-            />
-          ))}
-        </svg>
+        {/* Bloodstream zone */}
+        <div style={{ height: 80, position: "relative", overflow: "hidden", background: isAhara ? "rgba(196,151,58,0.08)" : "rgba(0,0,0,0.02)" }}>
+          <svg viewBox="0 0 300 80" preserveAspectRatio="none"
+               className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="0" y1="2" x2="300" y2="2" stroke={isAhara ? "rgba(196,151,58,0.35)" : "rgba(26,26,26,0.12)"} strokeWidth="1.5" />
+            {bloodCells.map((x, i) => (
+              <circle key={i} className="aca-drift" cx={x} cy={34 + (i % 2) * 16} r="4.5"
+                      fill={isAhara ? "rgba(196,151,58,0.32)" : "rgba(158,158,158,0.25)"}
+                      style={{ animationDelay: `${i * 0.7}s` }} />
+            ))}
+          </svg>
+          <span
+            className="absolute font-mono uppercase"
+            style={{ bottom: 8, left: 12, fontSize: 10, letterSpacing: "0.12em", color: "rgba(26,26,26,0.45)" }}
+          >
+            Bloodstream
+          </span>
+        </div>
       </div>
 
       <p
         className="font-mono text-[11px] tracking-[0.15em] uppercase text-center"
-        style={{ color: isAhara ? "#C4973A" : "rgba(158,158,158,0.85)" }}
+        style={{ marginTop: 12, color: isAhara ? "#C4973A" : "rgba(158,158,158,0.9)" }}
       >
         {isAhara ? "Built to reach you" : "Most passes through"}
       </p>
@@ -132,20 +158,6 @@ export default function AbsorptionComparisonAnimation() {
       </div>
 
       <style jsx>{`
-        .aca-zone {
-          font-family: "DM Mono", monospace;
-          font-size: 10px;
-          letter-spacing: 0.16em;
-          fill: rgba(26, 26, 26, 0.40);
-          text-transform: uppercase;
-        }
-        .aca-walllabel {
-          font-family: "DM Mono", monospace;
-          font-size: 9px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-        }
-
         :global([data-animate="true"]) .aca-blocked {
           will-change: transform, opacity;
           animation: aca-blocked 4s ease-in-out infinite;
@@ -158,50 +170,38 @@ export default function AbsorptionComparisonAnimation() {
           will-change: transform;
           animation: aca-drift 5s linear infinite;
         }
-        :global([data-animate="true"]) .aca-wallglow {
-          will-change: opacity;
-          animation: aca-wallpulse 4s ease-in-out infinite;
-        }
         :global([data-animate="false"]) .aca-blocked,
         :global([data-animate="false"]) .aca-through {
           opacity: 0;
         }
-        :global([data-animate="false"]) .aca-wallglow {
-          opacity: 0.12;
-        }
 
+        /* particles fall within the particle zone only (viewBox height 130) */
         @keyframes aca-blocked {
-          0%   { transform: translateY(-12px); opacity: 0; }
+          0%   { transform: translateY(-10px); opacity: 0; }
           16%  { opacity: 1; }
-          45%  { transform: translateY(150px); opacity: 1; }
-          60%  { transform: translateY(158px); opacity: 0; }
-          100% { transform: translateY(158px); opacity: 0; }
+          50%  { transform: translateY(70px); opacity: 1; }
+          66%  { transform: translateY(80px); opacity: 0; }
+          100% { transform: translateY(80px); opacity: 0; }
         }
         @keyframes aca-through {
-          0%   { transform: translateY(-12px); opacity: 0; }
+          0%   { transform: translateY(-10px); opacity: 0; }
           16%  { opacity: 1; }
-          85%  { opacity: 1; }
-          100% { transform: translateY(258px); opacity: 0; }
+          82%  { opacity: 1; }
+          100% { transform: translateY(116px); opacity: 0; }
         }
         @keyframes aca-drift {
           0%   { transform: translateX(-24px); }
           100% { transform: translateX(320px); }
         }
-        @keyframes aca-wallpulse {
-          0%, 100% { opacity: 0.12; }
-          50%      { opacity: 0.40; }
-        }
 
         @media (prefers-reduced-motion: reduce) {
           :global([data-animate="true"]) .aca-blocked,
           :global([data-animate="true"]) .aca-through,
-          :global([data-animate="true"]) .aca-drift,
-          :global([data-animate="true"]) .aca-wallglow {
+          :global([data-animate="true"]) .aca-drift {
             animation: none;
           }
-          :global([data-animate]) .aca-through { opacity: 1; transform: translateY(120px); }
-          :global([data-animate]) .aca-blocked { opacity: 0.7; transform: translateY(120px); }
-          :global([data-animate]) .aca-wallglow { opacity: 0.25; }
+          :global([data-animate]) .aca-through { opacity: 1; transform: translateY(60px); }
+          :global([data-animate]) .aca-blocked { opacity: 0.7; transform: translateY(60px); }
         }
       `}</style>
     </div>

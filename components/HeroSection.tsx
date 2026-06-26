@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import MolecularCanvas from "@/components/MolecularCanvas";
+import AbsorptionPulseRing from "@/components/AbsorptionPulseRing";
 import MolecularGlobe3D from "@/components/MolecularGlobe3D";
 import WaitlistForm from "@/components/WaitlistForm";
 import CharacterReveal from "@/components/CharacterReveal";
@@ -40,16 +40,12 @@ export default function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  // MolecularCanvas: slower than page (moves down less)
-  const canvasY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   // Hero headline: counter-scroll (moves up)
   const headlineY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center pt-[72px]" style={{ overflow: "hidden", background: "#1C1410" }}>
-      <motion.div style={{ y: canvasY }} className="absolute inset-0">
-        <MolecularCanvas />
-      </motion.div>
+      <AbsorptionPulseRing />
       <CornerMarks />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-20">
