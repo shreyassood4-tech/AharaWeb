@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import MagneticButton from "@/components/MagneticButton";
 import TiltCard from "@/components/TiltCard";
 import TypewriterList from "@/components/TypewriterList";
+import AbsorptionComparisonAnimation from "@/components/AbsorptionComparisonAnimation";
 
 export const metadata: Metadata = {
   title: "Ahara — Science-Backed Nutrition for Vegetarian Diets",
@@ -58,7 +59,7 @@ export default function HomePage() {
       <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal>
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-12">THE REALITY</p>
+            <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-12">THE REALITY</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -77,7 +78,7 @@ export default function HomePage() {
                 <span className="font-cormorant font-light text-gold gold-stat leading-none" style={{ fontSize: "clamp(52px, 6vw, 78px)" }}>
                   Most
                 </span>
-                <p className="font-inter text-cream text-center text-base leading-relaxed max-w-[220px] mt-4" style={{ opacity: 0.85 }}>
+                <p className="font-inter text-charcoal text-center text-base leading-relaxed max-w-[220px] mt-4" style={{ opacity: 0.85 }}>
                   supplements skip the science of how your body actually absorbs nutrients
                 </p>
               </div>
@@ -86,7 +87,7 @@ export default function HomePage() {
 
           <ScrollReveal delay={0.2}>
             <div className="text-center mt-16 flex flex-col items-center gap-4">
-              <p className="font-inter text-center" style={{ color: "rgba(242,237,227,0.70)", fontSize: "17px" }}>
+              <p className="font-inter text-center" style={{ color: "rgba(26,26,26,0.70)", fontSize: "17px" }}>
                 If you eat plant-based, these numbers describe you — not someone else.
               </p>
               <Link href="/science" className="font-mono text-gold text-sm hover:text-gold-bright transition-colors">
@@ -98,14 +99,34 @@ export default function HomePage() {
         <SectionDivider />
       </section>
 
+      {/* SECTION 2.5: WHAT GOES IN VS WHAT REACHES YOU */}
+      <section className="bg-abyss py-20">
+        <div className="max-w-[800px] mx-auto px-6 flex flex-col items-center gap-10">
+          <ScrollReveal className="text-center">
+            <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">THE DIFFERENCE</p>
+            <h2 className="font-cormorant font-light text-charcoal leading-tight mx-auto max-w-[640px]" style={{ fontSize: "clamp(28px, 5vw, 48px)" }}>
+              Most supplements don&apos;t fail on the label.<br />They fail in your gut.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.15} className="w-full">
+            <AbsorptionComparisonAnimation />
+          </ScrollReveal>
+          <ScrollReveal delay={0.25}>
+            <p className="font-inter text-center max-w-[520px] mx-auto" style={{ color: "rgba(26,26,26,0.60)", fontSize: "14px", lineHeight: 1.7 }}>
+              Nutrients that actually reach you — that&apos;s the standard we build to.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* SECTION 3: THE PRODUCT GLIMPSE */}
       <section className="grid md:grid-cols-2 min-h-[600px]">
         <div className="bg-void px-8 md:px-16 py-20 flex flex-col justify-center gap-8">
           <ScrollReveal>
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">FORMULA 01</p>
+            <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase">FORMULA 01</p>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h2 className="font-cormorant font-semibold text-white leading-tight" style={{ fontSize: "clamp(28px, 5.5vw, 52px)" }}>
+            <h2 className="font-cormorant font-semibold text-charcoal leading-tight" style={{ fontSize: "clamp(28px, 5.5vw, 52px)" }}>
               Real food.<br />Proven science.<br />One daily powder.
             </h2>
           </ScrollReveal>
@@ -115,13 +136,13 @@ export default function HomePage() {
               <RevealItem>
                 <TiltCard className="glass-card p-6 flex flex-col gap-1">
                   <span className="font-cormorant text-gold text-4xl font-light">250 µg</span>
-                  <span className="font-mono text-cream text-xs tracking-widest">Vitamin B12 per serving</span>
+                  <span className="font-mono text-charcoal text-xs tracking-widest">Vitamin B12 per serving</span>
                 </TiltCard>
               </RevealItem>
               <RevealItem>
                 <TiltCard className="glass-card p-6 flex flex-col gap-1">
                   <span className="font-cormorant text-gold text-4xl font-light">1,000 IU</span>
-                  <span className="font-mono text-cream text-xs tracking-widest">Plant-derived D3 per serving</span>
+                  <span className="font-mono text-charcoal text-xs tracking-widest">Plant-derived D3 per serving</span>
                 </TiltCard>
               </RevealItem>
             </div>
@@ -182,7 +203,7 @@ export default function HomePage() {
               <RevealItem key={i}>
                 <TiltCard
                   className="p-8 rounded-2xl flex flex-col gap-4"
-                  style={{ background: "#2D4A2F", border: "1px solid rgba(196,151,58,0.30)" }}
+                  style={{ background: "#3D6B4F", border: "1px solid rgba(196,151,58,0.30)" }}
                 >
                   <span className="font-mono text-gold text-xs tracking-[0.2em]">{card.method}</span>
                   <h3 className="font-cormorant text-cream text-2xl font-light">{card.title}</h3>
@@ -205,7 +226,7 @@ export default function HomePage() {
       <section
         id="waitlist"
         className="relative py-20 md:py-[160px] bg-void"
-        style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.07) 0%, transparent 60%), #060D07" }}
+        style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.10) 0%, transparent 60%), #1C1410" }}
       >
         <CornerMarks />
         <div className="relative z-10 max-w-2xl mx-auto px-6 flex flex-col items-center gap-8 text-center">
@@ -238,8 +259,8 @@ export default function HomePage() {
       <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">QUESTIONS</p>
-            <h2 className="font-cormorant font-light text-white mb-12" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
+            <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">QUESTIONS</p>
+            <h2 className="font-cormorant font-light text-charcoal mb-12" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
               Common questions.
             </h2>
           </ScrollReveal>

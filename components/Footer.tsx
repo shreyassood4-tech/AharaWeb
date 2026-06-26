@@ -67,7 +67,7 @@ export default function Footer() {
     <footer
       className="relative pt-20 pb-12 overflow-hidden"
       style={{
-        background: "#060D07",
+        background: "#F0EBE3",
         borderTop: "1px solid rgba(196,151,58,0.15)",
       }}
     >
@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start gap-3">
             <Image src="/AharaSubmark.png" alt="Ahara" width={72} height={72} className="rounded-full" />
-            <p className="font-inter text-cream text-[13px]">Science. Nourishment. Wellbeing.</p>
+            <p className="font-inter text-charcoal text-[13px]">Science. Nourishment. Wellbeing.</p>
           </div>
 
           <div className="flex flex-col items-center gap-4">
@@ -86,7 +86,7 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-mono text-xs tracking-[0.12em] text-cream/60 hover:text-cream transition-colors"
+                  className="font-mono text-xs tracking-[0.12em] text-charcoal/60 hover:text-charcoal transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
             <a
               href="mailto:hello@ahara.co"
-              className="font-inter text-cream text-sm underline-offset-2 hover:underline hover:text-gold transition-colors mt-2"
+              className="font-inter text-charcoal text-sm underline-offset-2 hover:underline hover:text-gold transition-colors mt-2"
             >
               hello@ahara.co
             </a>
@@ -105,13 +105,13 @@ export default function Footer() {
               Follow the Science
             </span>
             <div className="flex items-center gap-4">
-              <a href="#" aria-label="Instagram" rel="noopener noreferrer" className="text-cream/70 hover:text-gold transition-colors">
+              <a href="#" aria-label="Instagram" rel="noopener noreferrer" className="text-charcoal/70 hover:text-gold transition-colors">
                 <IconInstagram size={20} />
               </a>
-              <a href="#" aria-label="LinkedIn" rel="noopener noreferrer" className="text-cream/70 hover:text-gold transition-colors">
+              <a href="#" aria-label="LinkedIn" rel="noopener noreferrer" className="text-charcoal/70 hover:text-gold transition-colors">
                 <IconLinkedin size={20} />
               </a>
-              <a href="#" aria-label="Twitter/X" rel="noopener noreferrer" className="text-cream/70 hover:text-gold transition-colors">
+              <a href="#" aria-label="Twitter/X" rel="noopener noreferrer" className="text-charcoal/70 hover:text-gold transition-colors">
                 <IconX size={20} />
               </a>
             </div>
@@ -119,7 +119,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-6 border-t" style={{ borderColor: "rgba(196,151,58,0.08)" }}>
-          <p className="font-mono text-[11px] text-center" style={{ color: "rgba(242,237,227,0.30)" }}>
+          <p className="font-mono text-[11px] text-center" style={{ color: "rgba(26,26,26,0.45)" }}>
             © 2026 Ahara ·{" "}
             <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
             {" · "}

@@ -28,7 +28,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             className="w-full flex items-center justify-between py-6 text-left group"
             aria-expanded={openIndex === i}
           >
-            <span className="font-cormorant font-semibold text-white text-xl pr-4">
+            <span className="font-cormorant font-semibold text-charcoal text-xl pr-4">
               {item.question}
             </span>
             <span
@@ -50,7 +50,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
               >
                 <p
                   className="font-inter text-base pb-6 leading-relaxed"
-                  style={{ color: "rgba(242, 237, 227, 0.72)", fontSize: "17px" }}
+                  style={{ color: "rgba(26, 26, 26, 0.72)", fontSize: "17px" }}
                 >
                   {item.answer}
                 </p>

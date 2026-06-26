@@ -19,7 +19,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
 
   const inputClass = `w-full px-4 py-3 rounded-xl font-inter text-base outline-none transition-all duration-200 ${
     variant === "dark" || variant === "hero"
-      ? "bg-abyss text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/80"
+      ? "bg-[#241A12] text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/80"
       : "bg-cream/10 text-charcoal placeholder-charcoal/40 border border-forest/30 focus:border-forest"
   }`;
 
@@ -102,7 +102,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
                 placeholder="Your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-5 py-3.5 rounded-full bg-abyss text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/70 outline-none font-inter text-sm transition-colors"
+                className="flex-1 px-5 py-3.5 rounded-full bg-[#241A12] text-cream placeholder-cream/40 border border-gold/30 focus:border-gold/70 outline-none font-inter text-sm transition-colors"
                 required
               />
               <button
@@ -175,7 +175,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
                   onClick={() => toggleInterest(interest)}
                   className={`px-4 py-2 rounded-full text-xs font-mono tracking-widest uppercase transition-all duration-200 ${
                     interests.includes(interest)
-                      ? "bg-gold text-void border border-gold"
+                      ? "bg-gold text-[#1A1A1A] border border-gold"
                       : "bg-transparent text-gold border border-gold/50 hover:border-gold"
                   }`}
                 >

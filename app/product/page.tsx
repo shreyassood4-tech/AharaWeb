@@ -15,7 +15,7 @@ export default function ProductPage() {
   return (
     <>
       {/* SECTION 3.1: HERO */}
-      <section className="relative bg-void pt-[72px]" style={{ minHeight: "85vh" }}>
+      <section className="relative pt-[72px]" style={{ minHeight: "85vh", background: "#1C1410" }}>
         <MolecularCanvas opacity={0.5} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-32 flex flex-col gap-8">
           <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">AHARA · FORMULA 01</p>
@@ -53,11 +53,11 @@ export default function ProductPage() {
       <section className="bg-abyss py-16 md:py-[120px]">
         <div className="max-w-5xl mx-auto px-6 flex flex-col gap-12">
           <ScrollReveal>
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-4">FULL INGREDIENT BREAKDOWN</p>
-            <h2 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
+            <p className="font-mono text-forest text-xs tracking-[0.2em] uppercase mb-4">FULL INGREDIENT BREAKDOWN</p>
+            <h2 className="font-cormorant font-light text-charcoal leading-tight" style={{ fontSize: "clamp(32px, 4vw, 52px)" }}>
               Every ingredient.<br />Every reason.
             </h2>
-            <p className="font-inter mt-4" style={{ color: "rgba(242,237,227,0.70)", fontSize: "17px" }}>
+            <p className="font-inter mt-4" style={{ color: "rgba(26,26,26,0.70)", fontSize: "17px" }}>
               Nothing in Ahara&apos;s formula is accidental. Six ingredient groups, each with a specific role.
             </p>
           </ScrollReveal>
@@ -98,8 +98,8 @@ export default function ProductPage() {
               <RevealItem key={i}>
                 <div className="glass-card p-7 flex flex-col gap-4 h-full">
                   <p className="font-mono text-gold text-[11px] tracking-[0.2em]">{card.tag}</p>
-                  <p className="font-cormorant text-white text-xl">{card.ingredients}</p>
-                  <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.75)" }}>
+                  <p className="font-cormorant text-charcoal text-xl">{card.ingredients}</p>
+                  <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.72)" }}>
                     {card.body}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export default function ProductPage() {
               },
             ].map((card, i) => (
               <RevealItem key={i}>
-                <div className="p-8 rounded-2xl flex flex-col gap-4" style={{ background: "#2D4A2F", border: "1px solid rgba(196,151,58,0.30)" }}>
+                <div className="p-8 rounded-2xl flex flex-col gap-4" style={{ background: "#3D6B4F", border: "1px solid rgba(196,151,58,0.30)" }}>
                   <span className="font-mono text-gold text-xs tracking-[0.2em]">{card.method}</span>
                   <h3 className="font-cormorant text-cream text-2xl font-light">{card.title}</h3>
                   <p className="font-inter text-cream/75 text-sm leading-relaxed">{card.body}</p>
@@ -151,7 +151,7 @@ export default function ProductPage() {
           <ScrollReveal delay={0.2}>
             <div
               className="max-w-md mx-auto p-8 rounded-xl font-mono text-forest text-sm space-y-3"
-              style={{ border: "1px solid #2D4A2F", borderRadius: "12px" }}
+              style={{ border: "1px solid rgba(61,107,79,0.5)", borderRadius: "12px" }}
             >
               {[
                 ["SERVING SIZE", "1 serving per day"],
@@ -176,7 +176,7 @@ export default function ProductPage() {
       <section
         id="waitlist"
         className="relative py-16 md:py-[120px]"
-        style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.07) 0%, transparent 60%), #060D07" }}
+        style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.10) 0%, transparent 60%), #1C1410" }}
       >
         <div className="max-w-2xl mx-auto px-6 flex flex-col items-center gap-8 text-center">
           <ScrollReveal>

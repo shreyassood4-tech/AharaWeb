@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Absorption Comparison — Science page.
+ * Absorption Comparison — Science page (light theme).
  * Two panels side by side: a standard dosage-first supplement (nutrients blocked
  * at the gut wall, most lost) vs. the Ahara formula (co-factors open the pathway,
  * nutrients reach the bloodstream).
@@ -31,12 +31,12 @@ export default function AbsorptionComparison() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* ───────── STANDARD SUPPLEMENT ───────── */}
         <div className="rounded-2xl p-6 md:p-7 flex flex-col gap-4"
-             style={{ background: "rgba(17,28,18,0.45)", border: "1px solid rgba(242,237,227,0.10)" }}>
+             style={{ background: "rgba(255,255,255,0.55)", border: "1px solid rgba(26,26,26,0.10)" }}>
           <div>
-            <p className="font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: "rgba(242,237,227,0.45)" }}>
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase" style={{ color: "rgba(26,26,26,0.50)" }}>
               STANDARD SUPPLEMENT
             </p>
-            <p className="font-inter text-sm mt-1" style={{ color: "rgba(242,237,227,0.50)" }}>
+            <p className="font-inter text-sm mt-1" style={{ color: "rgba(26,26,26,0.50)" }}>
               Dosage-first · no absorption support
             </p>
           </div>
@@ -48,32 +48,31 @@ export default function AbsorptionComparison() {
             <text x="12" y="290" className="cmp-label-dim">BLOODSTREAM</text>
 
             {/* Impermeable gut wall — tight brick barrier */}
-            <line x1="0" y1="186" x2="320" y2="186" stroke="rgba(242,237,227,0.30)" strokeWidth="2" />
+            <line x1="0" y1="186" x2="320" y2="186" stroke="rgba(26,26,26,0.30)" strokeWidth="2" />
             {Array.from({ length: 16 }).map((_, i) => (
               <rect key={i} x={i * 20} y="178" width="16" height="16"
-                    fill="none" stroke="rgba(242,237,227,0.16)" strokeWidth="1" />
+                    fill="none" stroke="rgba(26,26,26,0.14)" strokeWidth="1" />
             ))}
 
             {/* Bloodstream — nearly empty */}
-            <rect x="0" y="246" width="320" height="40" fill="rgba(242,237,227,0.03)" />
-            <line x1="0" y1="246" x2="320" y2="246" stroke="rgba(242,237,227,0.18)" strokeWidth="1" />
+            <rect x="0" y="246" width="320" height="40" fill="rgba(26,26,26,0.03)" />
+            <line x1="0" y1="246" x2="320" y2="246" stroke="rgba(26,26,26,0.18)" strokeWidth="1" />
 
             {/* Blocked nutrients — fall, hit the wall, wobble, fade back */}
             {particleX.map((x, i) => (
               <circle key={`b-${i}`} className="cmp-blocked" cx={x} cy="40" r="6"
-                      fill="rgba(242,237,227,0.55)"
-                      style={{ animationDelay: `${i * 0.5}s` }} />
+                      fill="#9E9E9E" style={{ animationDelay: `${i * 0.5}s` }} />
             ))}
             {/* A single nutrient that does leak through */}
             <circle className="cmp-leak" cx="160" cy="40" r="5"
-                    fill="rgba(242,237,227,0.55)" style={{ animationDelay: "1.2s" }} />
+                    fill="#9E9E9E" style={{ animationDelay: "1.2s" }} />
           </svg>
 
           <div className="flex flex-col gap-2">
-            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(242,237,227,0.10)" }}>
-              <div className="cmp-bar-low h-full rounded-full" style={{ background: "rgba(242,237,227,0.40)" }} />
+            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(26,26,26,0.10)" }}>
+              <div className="cmp-bar-low h-full rounded-full" style={{ background: "#9E9E9E" }} />
             </div>
-            <p className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(242,237,227,0.45)" }}>
+            <p className="font-mono text-[10px] tracking-[0.15em] uppercase" style={{ color: "rgba(26,26,26,0.50)" }}>
               Most nutrients never absorbed
             </p>
           </div>
@@ -81,12 +80,12 @@ export default function AbsorptionComparison() {
 
         {/* ───────── AHARA FORMULA ───────── */}
         <div className="rounded-2xl p-6 md:p-7 flex flex-col gap-4"
-             style={{ background: "rgba(45,74,47,0.18)", border: "1px solid rgba(196,151,58,0.40)", boxShadow: "0 0 40px rgba(196,151,58,0.08)" }}>
+             style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(196,151,58,0.45)", boxShadow: "0 8px 40px rgba(196,151,58,0.12)" }}>
           <div>
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-gold">
               AHARA FORMULA
             </p>
-            <p className="font-inter text-sm mt-1" style={{ color: "rgba(242,237,227,0.70)" }}>
+            <p className="font-inter text-sm mt-1" style={{ color: "rgba(26,26,26,0.70)" }}>
               Absorption-first · co-factor optimized
             </p>
           </div>
@@ -98,37 +97,37 @@ export default function AbsorptionComparison() {
             <text x="12" y="290" className="cmp-label">BLOODSTREAM</text>
 
             {/* Permeable gut wall — open gates / channels */}
-            <line x1="0" y1="186" x2="320" y2="186" stroke="rgba(196,151,58,0.35)" strokeWidth="1.5" strokeDasharray="2 18" />
+            <line x1="0" y1="186" x2="320" y2="186" stroke="rgba(196,151,58,0.40)" strokeWidth="1.5" strokeDasharray="2 18" />
             {[70, 130, 190, 250].map((x, i) => (
               <path key={i} d={`M${x - 14},186 Q${x},166 ${x + 14},186`}
-                    fill="none" stroke="rgba(196,151,58,0.45)" strokeWidth="1.5" />
+                    fill="none" stroke="rgba(196,151,58,0.55)" strokeWidth="1.5" />
             ))}
 
             {/* Bloodstream — receiving nutrients */}
-            <rect x="0" y="246" width="320" height="40" fill="rgba(196,151,58,0.08)" />
-            <line x1="0" y1="246" x2="320" y2="246" stroke="rgba(196,151,58,0.35)" strokeWidth="1.5" />
+            <rect x="0" y="246" width="320" height="40" fill="rgba(196,151,58,0.10)" />
+            <line x1="0" y1="246" x2="320" y2="246" stroke="rgba(196,151,58,0.40)" strokeWidth="1.5" />
             {[40, 120, 200, 280].map((x, i) => (
               <circle key={`flowcell-${i}`} className="cmp-bloodcell" cx={x} cy={262 + (i % 2) * 10} r="5"
-                      fill="rgba(196,151,58,0.20)" style={{ animationDelay: `${i * 0.8}s` }} />
+                      fill="rgba(196,151,58,0.28)" style={{ animationDelay: `${i * 0.8}s` }} />
             ))}
 
-            {/* Co-factor helpers — green, guiding nutrients through */}
+            {/* Co-factor helpers — sage green, guiding nutrients through */}
             {particleX.map((x, i) => (
               <circle key={`co-${i}`} className="cmp-flow" cx={x + 10} cy="40" r="3.5"
-                      fill="rgba(120,170,110,0.75)" style={{ animationDelay: `${i * 0.5 + 0.15}s` }} />
+                      fill="rgba(61,107,79,0.85)" style={{ animationDelay: `${i * 0.5 + 0.15}s` }} />
             ))}
             {/* Nutrients — flow all the way through to the bloodstream */}
             {particleX.map((x, i) => (
               <circle key={`f-${i}`} className="cmp-flow" cx={x} cy="40" r="6"
-                      fill="#E8B84B" style={{ animationDelay: `${i * 0.5}s` }} />
+                      fill="#C4973A" style={{ animationDelay: `${i * 0.5}s` }} />
             ))}
           </svg>
 
           <div className="flex flex-col gap-2">
             <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(196,151,58,0.15)" }}>
-              <div className="cmp-bar-high h-full rounded-full" style={{ background: "linear-gradient(to right, #2D4A2F, #C4973A)" }} />
+              <div className="cmp-bar-high h-full rounded-full" style={{ background: "linear-gradient(to right, #3D6B4F, #C4973A)" }} />
             </div>
-            <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-gold/80">
+            <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-gold">
               Engineered for nutrient uptake
             </p>
           </div>
@@ -140,14 +139,14 @@ export default function AbsorptionComparison() {
           font-family: "DM Mono", monospace;
           font-size: 10px;
           letter-spacing: 0.18em;
-          fill: rgba(196, 151, 58, 0.60);
+          fill: rgba(196, 151, 58, 0.75);
           text-transform: uppercase;
         }
         .cmp-label-dim {
           font-family: "DM Mono", monospace;
           font-size: 10px;
           letter-spacing: 0.18em;
-          fill: rgba(242, 237, 227, 0.35);
+          fill: rgba(26, 26, 26, 0.40);
           text-transform: uppercase;
         }
 
@@ -173,7 +172,6 @@ export default function AbsorptionComparison() {
           opacity: 0;
         }
 
-        /* Nutrient blocked at the wall: falls, presses, then is pushed back and fades */
         @keyframes cmp-block {
           0%   { transform: translateY(0);     opacity: 0; }
           15%  { opacity: 1; }
@@ -182,14 +180,12 @@ export default function AbsorptionComparison() {
           64%  { transform: translateY(140px); opacity: 0.7; }
           100% { transform: translateY(96px);  opacity: 0; }
         }
-        /* Rare nutrient that slips through */
         @keyframes cmp-leak {
           0%   { transform: translateY(0);     opacity: 0; }
           10%  { opacity: 1; }
           45%  { transform: translateY(150px); opacity: 1; }
           100% { transform: translateY(232px); opacity: 0; }
         }
-        /* Ahara: nutrient flows straight through into the bloodstream */
         @keyframes cmp-flow {
           0%   { transform: translateY(0);     opacity: 0; }
           14%  { opacity: 1; }

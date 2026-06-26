@@ -3,13 +3,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #060D07;
-  --color-abyss: #111C12;
-  --color-forest: #2D4A2F;
-  --color-gold: #C4973A;
+  --color-void: #FAF7F2;          /* warm off-white — primary background */
+  --color-abyss: #F0EBE3;         /* warm cream — card / alt section background */
+  --color-forest: #3D6B4F;        /* sage green accent */
+  --color-gold: #C4973A;          /* turmeric gold — primary accent */
   --color-gold-bright: #E8B84B;
-  --color-cream: #F2EDE3;
-  --color-charcoal: #2A2A2A;
+  --color-cream: #FFFFFF;          /* pure white — contrast moments / text on dark */
+  --color-charcoal: #1A1A1A;       /* body text on light */
+  --color-spice: #B5591A;          /* warm terracotta — secondary accent */
+  --color-parchment-deep: #E8E0D5; /* borders, dividers, section contrast */
+
+  /* warm dark used only for hero / CTA moments */
+  --color-hero: #1C1410;
 
   --font-family-cormorant: "Cormorant Garamond", serif;
   --font-family-mono: "DM Mono", monospace;
@@ -21,29 +26,43 @@ html {
 }
 
 body {
-  background-color: #060D07;
-  color: #F2EDE3;
+  background-color: #FAF7F2;
+  color: #1A1A1A;
 }
 
 @layer utilities {
   .glass-card {
-    background: rgba(17, 28, 18, 0.60);
+    background: rgba(255, 255, 255, 0.70);
     backdrop-filter: blur(24px);
     border: 1px solid rgba(196, 151, 58, 0.20);
     border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.40);
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   .glass-card:hover {
+    border-color: rgba(196, 151, 58, 0.50);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+  /* dark glass — only for hero / CTA sections on the warm-dark background */
+  .glass-card-dark {
+    background: rgba(28, 20, 16, 0.55);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(196, 151, 58, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.40);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .glass-card-dark:hover {
     border-color: rgba(196, 151, 58, 0.60);
     transform: translateY(-6px);
   }
   .gold-stat {
-    text-shadow: 0 0 40px rgba(196,151,58,0.5);
+    text-shadow: 0 0 40px rgba(196, 151, 58, 0.35);
   }
   .btn-gold-filled {
     background: #C4973A;
-    color: #060D07;
+    color: #1A1A1A;
     border-radius: 100px;
     font-family: 'DM Mono', monospace;
     font-size: 12px;
@@ -54,10 +73,10 @@ body {
   }
   .btn-gold-filled:hover {
     background: #E8B84B;
-    box-shadow: 0 0 32px rgba(196,151,58,0.60);
+    box-shadow: 0 0 32px rgba(196, 151, 58, 0.45);
   }
   .btn-gold-outline {
-    background: transparent;
+    background: rgba(196, 151, 58, 0.06);
     border: 1.5px solid #C4973A;
     color: #C4973A;
     border-radius: 100px;
@@ -70,7 +89,7 @@ body {
   }
   .btn-gold-outline:hover {
     background: #C4973A;
-    color: #060D07;
-    box-shadow: 0 0 24px rgba(196,151,58,0.50);
+    color: #1A1A1A;
+    box-shadow: 0 0 24px rgba(196, 151, 58, 0.40);
   }
 }

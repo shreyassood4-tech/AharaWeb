@@ -16,9 +16,9 @@ export default function Nav() {
       <nav
         className="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center px-6 md:px-12"
         style={{
-          background: "rgba(6,13,7,0.85)",
+          background: "rgba(250,247,242,0.90)",
           backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(196,151,58,0.12)",
+          borderBottom: "1px solid rgba(196,151,58,0.15)",
         }}
       >
         <div className="flex items-center gap-3 flex-shrink-0">
@@ -30,7 +30,7 @@ export default function Nav() {
             className="rounded-lg"
             priority
           />
-          <span className="font-cormorant text-xl font-light text-cream hidden sm:block" style={{ letterSpacing: "0.08em" }}>
+          <span className="font-cormorant text-xl font-light text-charcoal hidden sm:block" style={{ letterSpacing: "0.08em" }}>
             Ahara
           </span>
         </div>
@@ -43,7 +43,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 className="relative font-mono text-xs tracking-[0.12em] transition-colors duration-200 group"
-                style={{ color: isActive ? "#C4973A" : "rgba(242,237,227,0.65)" }}
+                style={{ color: isActive ? "#C4973A" : "rgba(26,26,26,0.70)" }}
               >
                 {link.label}
                 <span
@@ -56,7 +56,7 @@ export default function Nav() {
         </div>
 
         <div className="ml-auto md:ml-0 flex items-center gap-4">
-          <Link href="/#waitlist" className="btn-gold-outline hidden md:block text-xs py-2 px-6">
+          <Link href="/#waitlist" className="btn-gold-filled hidden md:block text-xs py-2 px-6">
             Join the Waitlist
           </Link>
           <button
@@ -72,7 +72,7 @@ export default function Nav() {
       {mobileOpen && (
         <div
           className="fixed inset-0 z-[100] flex flex-col"
-          style={{ background: "#060D07" }}
+          style={{ background: "#FAF7F2" }}
         >
           <div className="flex items-center justify-between px-6 h-[72px]">
             <Image src="/AharaBrandIcon2.png" alt="Ahara" width={40} height={40} className="rounded-lg" />
@@ -86,7 +86,7 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="font-cormorant text-5xl font-light text-cream hover:text-gold transition-colors"
+                className="font-cormorant text-5xl font-light text-charcoal hover:text-gold transition-colors"
               >
                 {link.label}
               </Link>

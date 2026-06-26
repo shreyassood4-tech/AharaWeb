@@ -23,21 +23,21 @@ export default function ResearchPage() {
   const articles = getAllArticles();
 
   return (
-    <div className="min-h-screen pt-[72px]" style={{ background: "#060D07" }}>
+    <div className="min-h-screen pt-[72px]" style={{ background: "#FAF7F2" }}>
       {/* Header */}
       <div className="max-w-5xl mx-auto px-6 py-20">
         <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase mb-6">
           RESEARCH & INSIGHTS
         </p>
         <h1
-          className="font-cormorant font-light text-white leading-tight"
+          className="font-cormorant font-light text-charcoal leading-tight"
           style={{ fontSize: "clamp(40px, 6vw, 72px)" }}
         >
           The science behind<br />the nutrition.
         </h1>
         <p
           className="font-inter mt-6 max-w-[540px] leading-relaxed"
-          style={{ color: "rgba(242,237,227,0.65)", fontSize: "18px" }}
+          style={{ color: "rgba(26,26,26,0.65)", fontSize: "18px" }}
         >
           We write plainly about what we know, what the research says, and why
           it shaped every decision in our formula.
@@ -80,10 +80,10 @@ export default function ResearchPage() {
                   <span className="font-mono text-gold text-lg font-light leading-none mt-0.5 opacity-60">{c.n}</span>
                   <div>
                     <p className="font-mono text-gold text-[10px] tracking-[0.2em] mb-1.5">{c.tag}</p>
-                    <h3 className="font-cormorant text-white text-lg leading-snug">{c.title}</h3>
+                    <h3 className="font-cormorant text-charcoal text-lg leading-snug">{c.title}</h3>
                   </div>
                 </div>
-                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(242,237,227,0.65)" }}>{c.body}</p>
+                <p className="font-inter text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.65)" }}>{c.body}</p>
               </div>
             ))}
           </div>
@@ -108,19 +108,19 @@ export default function ResearchPage() {
                   </span>
                   <span
                     className="font-mono text-[11px] tracking-widest"
-                    style={{ color: "rgba(242,237,227,0.30)" }}
+                    style={{ color: "rgba(26,26,26,0.30)" }}
                   >
                     {formatDate(article.date)}
                   </span>
                 </div>
 
-                <h2 className="font-cormorant font-semibold text-white text-2xl leading-tight group-hover:text-gold transition-colors duration-200">
+                <h2 className="font-cormorant font-semibold text-charcoal text-2xl leading-tight group-hover:text-gold transition-colors duration-200">
                   {article.title}
                 </h2>
 
                 <p
                   className="font-inter text-sm leading-relaxed flex-1"
-                  style={{ color: "rgba(242,237,227,0.65)" }}
+                  style={{ color: "rgba(26,26,26,0.65)" }}
                 >
                   {article.summary}
                 </p>

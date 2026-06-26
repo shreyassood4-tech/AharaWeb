@@ -62,7 +62,7 @@ function StaticMolecularSVG({ opacity = 1 }: { opacity?: number }) {
           cx={x}
           cy={y}
           r={goldNodes.includes(i) ? 1.2 : 0.8}
-          fill={goldNodes.includes(i) ? "#C4973A" : "#2D4A2F"}
+          fill={goldNodes.includes(i) ? "#C4973A" : "#3D6B4F"}
           opacity={goldNodes.includes(i) ? 0.7 : 0.6}
         />
       ))}
@@ -116,7 +116,7 @@ export default function MolecularCanvas({ opacity = 1 }: MolecularCanvasProps) {
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           radius: 3 + Math.random() * 1,
-          color: isGold ? "#C4973A" : "#2D4A2F",
+          color: isGold ? "#C4973A" : "#3D6B4F",
           opacity: isGold ? 0.7 : 0.6,
           isGold,
           pulseOffset: Math.random() * Math.PI * 2,

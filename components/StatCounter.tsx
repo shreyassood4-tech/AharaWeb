@@ -91,7 +91,7 @@ export default function StatCounter({ target, suffix = "", label, fontSize = "10
       >
         {displayed}{suffix}
       </motion.span>
-      <p className="font-inter text-cream text-center text-base leading-relaxed max-w-[220px]" style={{ opacity: 0.85 }}>
+      <p className="font-inter text-charcoal text-center text-base leading-relaxed max-w-[220px]" style={{ opacity: 0.85 }}>
         {label}
       </p>
     </div>

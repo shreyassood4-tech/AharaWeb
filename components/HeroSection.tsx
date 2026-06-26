@@ -46,7 +46,7 @@ export default function HeroSection() {
   const headlineY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center bg-void pt-[72px]" style={{ overflow: "hidden" }}>
+    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-[72px]" style={{ overflow: "hidden", background: "#1C1410" }}>
       <motion.div style={{ y: canvasY }} className="absolute inset-0">
         <MolecularCanvas />
       </motion.div>
@@ -64,15 +64,13 @@ export default function HeroSection() {
               className="font-cormorant font-light text-white leading-tight"
               style={{ fontSize: "clamp(28px, 7.5vw, 60px)" }}
             >
-              Your body deserves more than a guess.
+              Nutrients that actually reach you.
             </CharacterReveal>
           </div>
 
           <p className="font-inter text-lg leading-relaxed max-w-[520px]" style={{ color: "rgba(242,237,227,0.75)", fontSize: "19px" }}>
-            Most supplements count on dosage.<br />
-            Ahara is built around absorption —<br />
-            the science of actually getting nutrients<br />
-            from the powder into your bloodstream.
+            Most supplements measure success by what goes in.
+            We measure it by what gets absorbed.
           </p>
 
           <div className="flex flex-col gap-3 max-w-[520px]">
