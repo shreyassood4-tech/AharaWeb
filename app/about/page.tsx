@@ -176,13 +176,18 @@ export default function AboutPage() {
           <ScrollReveal delay={0.2}>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="#waitlist" className="btn-gold-filled">Join the Waitlist</Link>
-              <a href="mailto:hello@ahara.co" className="btn-gold-outline">Get in Touch</a>
+              <a href="mailto:shreyassood4@gmail.com,ghaimeagan4@gmail.com" className="btn-gold-outline">Get in Touch</a>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
-            <a href="mailto:hello@ahara.co" className="font-mono text-gold text-xs tracking-widest hover:text-gold-bright transition-colors">
-              hello@ahara.co
-            </a>
+            <div className="flex flex-col items-center gap-1">
+              <a href="mailto:shreyassood4@gmail.com" className="font-mono text-gold text-xs tracking-widest hover:text-gold-bright transition-colors">
+                shreyassood4@gmail.com
+              </a>
+              <a href="mailto:ghaimeagan4@gmail.com" className="font-mono text-gold text-xs tracking-widest hover:text-gold-bright transition-colors">
+                ghaimeagan4@gmail.com
+              </a>
+            </div>
           </ScrollReveal>
           <ScrollReveal delay={0.35} className="w-full">
             <WaitlistForm />

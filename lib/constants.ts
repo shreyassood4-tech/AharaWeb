@@ -56,6 +56,6 @@ export const FAQ_ITEMS = [
   {
     question: "Can I invest in or partner with Ahara?",
     answer:
-      "Absolutely — we're open to those conversations. Email us at hello@ahara.co",
+      "Absolutely — we're open to those conversations. Email us at shreyassood4@gmail.com or ghaimeagan4@gmail.com",
   },
 ] as const;

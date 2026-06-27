@@ -74,7 +74,7 @@ export default function TermsPage() {
             style={{ borderTop: "1px solid rgba(196,151,58,0.15)" }}
           >
             <p className="font-mono text-xs tracking-widest" style={{ color: "rgba(26,26,26,0.40)" }}>
-              CONTACT: HELLO@AHARA.CO
+              CONTACT: SHREYASSOOD4@GMAIL.COM · GHAIMEAGAN4@GMAIL.COM
             </p>
           </div>
         </div>

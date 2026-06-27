@@ -92,12 +92,20 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <a
-              href="mailto:hello@ahara.co"
-              className="font-inter text-charcoal text-sm underline-offset-2 hover:underline hover:text-gold transition-colors mt-2"
-            >
-              hello@ahara.co
-            </a>
+            <div className="flex flex-col items-center gap-1 mt-2">
+              <a
+                href="mailto:shreyassood4@gmail.com"
+                className="font-inter text-charcoal text-sm underline-offset-2 hover:underline hover:text-gold transition-colors"
+              >
+                shreyassood4@gmail.com
+              </a>
+              <a
+                href="mailto:ghaimeagan4@gmail.com"
+                className="font-inter text-charcoal text-sm underline-offset-2 hover:underline hover:text-gold transition-colors"
+              >
+                ghaimeagan4@gmail.com
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-col items-center md:items-end gap-4">

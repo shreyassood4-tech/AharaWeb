@@ -64,10 +64,17 @@ export default function PrivacyPage() {
             <p>
               Unsubscribe anytime via the link in any email. Request data deletion at{" "}
               <a
-                href="mailto:hello@ahara.co"
+                href="mailto:shreyassood4@gmail.com"
                 className="text-gold hover:text-gold-bright transition-colors underline underline-offset-2"
               >
-                hello@ahara.co
+                shreyassood4@gmail.com
+              </a>{" "}
+              or{" "}
+              <a
+                href="mailto:ghaimeagan4@gmail.com"
+                className="text-gold hover:text-gold-bright transition-colors underline underline-offset-2"
+              >
+                ghaimeagan4@gmail.com
               </a>
               .
             </p>
@@ -78,7 +85,7 @@ export default function PrivacyPage() {
             style={{ borderTop: "1px solid rgba(196,151,58,0.15)" }}
           >
             <p className="font-mono text-xs tracking-widest" style={{ color: "rgba(26,26,26,0.40)" }}>
-              CONTACT: HELLO@AHARA.CO · AHARA · INDIA
+              CONTACT: SHREYASSOOD4@GMAIL.COM · GHAIMEAGAN4@GMAIL.COM
             </p>
           </div>
         </div>
