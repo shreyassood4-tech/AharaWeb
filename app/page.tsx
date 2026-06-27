@@ -3,7 +3,6 @@ import Link from "next/link";
 import ScrollReveal, { RevealItem } from "@/components/ScrollReveal";
 import SectionDivider from "@/components/SectionDivider";
 import StatCounter from "@/components/StatCounter";
-import WaitlistForm from "@/components/WaitlistForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import { FAQ_ITEMS } from "@/lib/constants";
 import HeroSection from "@/components/HeroSection";
@@ -11,6 +10,7 @@ import MagneticButton from "@/components/MagneticButton";
 import TiltCard from "@/components/TiltCard";
 import TypewriterList from "@/components/TypewriterList";
 import AbsorptionComparisonAnimation from "@/components/AbsorptionComparisonAnimation";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "Ahara — Science-Backed Nutrition for Vegetarian Diets",
@@ -222,34 +222,22 @@ export default function HomePage() {
         <SectionDivider />
       </section>
 
-      {/* SECTION 6: WAITLIST CTA */}
+      {/* SECTION 6: TESTIMONIALS */}
       <section
-        id="waitlist"
-        className="relative py-20 md:py-[160px] bg-void"
+        className="relative py-20 md:py-[160px]"
         style={{ background: "radial-gradient(ellipse at center, rgba(196,151,58,0.10) 0%, transparent 60%), #1C1410" }}
       >
         <CornerMarks />
-        <div className="relative z-10 max-w-2xl mx-auto px-6 flex flex-col items-center gap-8 text-center">
+        <div className="relative z-10 flex flex-col items-center gap-10 text-center">
           <ScrollReveal>
-            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">GET EARLY ACCESS</p>
+            <p className="font-mono text-gold text-xs tracking-[0.2em] uppercase">WHAT PEOPLE ARE SAYING</p>
           </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="font-cormorant font-light text-white leading-tight" style={{ fontSize: "clamp(28px, 6vw, 72px)" }}>
-              Be the first to<br />know when we launch.
-            </h2>
+          <ScrollReveal delay={0.15} className="w-full">
+            <TestimonialsCarousel />
           </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p className="font-inter text-lg leading-relaxed max-w-[480px]" style={{ color: "rgba(242,237,227,0.70)", fontSize: "19px" }}>
-              Join our waitlist for early access, launch updates, and free educational content on nutrition science.
-              We&apos;ll only email you things worth reading.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.3} className="w-full">
-            <WaitlistForm />
-          </ScrollReveal>
-          <ScrollReveal delay={0.4}>
+          <ScrollReveal delay={0.3}>
             <p className="font-mono text-[11px] tracking-[0.2em]" style={{ color: "rgba(242,237,227,0.30)" }}>
-              NO SPAM · UNSUBSCRIBE ANYTIME · WE ONLY SEND THINGS WORTH READING
+              FROM OUR EARLY ACCESS COMMUNITY
             </p>
           </ScrollReveal>
         </div>
