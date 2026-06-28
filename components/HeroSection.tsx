@@ -1,13 +1,62 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import YogurtBowlScene from "@/components/YogurtBowlScene";
-import WaitlistForm from "@/components/WaitlistForm";
 import CharacterReveal from "@/components/CharacterReveal";
 import MagneticButton from "@/components/MagneticButton";
+
+const QUOTES = [
+  { text: "The only product that actually worked for me.", author: "Priya M., Delhi" },
+  { text: "My B12 was always low — nothing made a dent until this.", author: "Ravi K., Bangalore" },
+  { text: "Finally something that fits into my morning without a fuss.", author: "Anika S., Mumbai" },
+  { text: "You can feel the difference. It's a proper formula.", author: "Deepa R., Hyderabad" },
+  { text: "I've tried so many supplements. This is the first one I trust.", author: "Suresh T., Chennai" },
+];
+
+function HeroTestimonial() {
+  const [idx, setIdx] = useState(0);
+  const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setShow(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % QUOTES.length);
+        setShow(true);
+      }, 300);
+    }, 4500);
+    return () => clearInterval(t);
+  }, []);
+
+  const q = QUOTES[idx];
+  return (
+    <div className="flex flex-col gap-2 pt-1">
+      <div className="flex items-center gap-[3px]">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <svg key={i} width="11" height="11" viewBox="0 0 24 24" fill="#C4973A" aria-hidden="true">
+            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+          </svg>
+        ))}
+      </div>
+      <div
+        style={{
+          transition: "opacity 0.3s ease",
+          opacity: show ? 1 : 0,
+        }}
+      >
+        <p className="font-inter italic" style={{ fontSize: "13px", color: "rgba(242,237,227,0.65)", lineHeight: 1.5 }}>
+          &ldquo;{q.text}&rdquo;
+        </p>
+        <p className="font-mono" style={{ fontSize: "10px", color: "rgba(196,151,58,0.70)", letterSpacing: "0.12em", marginTop: "4px" }}>
+          — {q.author}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 function CornerMarks() {
   return (
@@ -67,11 +116,13 @@ export default function HeroSection() {
             We measure it by what gets absorbed.
           </p>
 
-          <div className="flex flex-col gap-3 max-w-[520px]">
-            <WaitlistForm variant="hero" />
-            <p className="font-mono text-[11px] tracking-widest" style={{ color: "rgba(242,237,227,0.40)" }}>
-              Currently in development · Be the first to know
-            </p>
+          <div className="flex flex-col gap-5 max-w-[480px]">
+            <MagneticButton>
+              <Link href="#waitlist" className="btn-gold-filled inline-block">
+                Join the Waitlist
+              </Link>
+            </MagneticButton>
+            <HeroTestimonial />
           </div>
         </motion.div>
 
